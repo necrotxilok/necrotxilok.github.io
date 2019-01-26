@@ -1,4 +1,11 @@
 
+
+body {
+  background-image: url('../images/background2.jpg');
+  background-attachment: fixed;
+}
+
+
 .projects-list {
   overflow: hidden;
   padding: 30px;
