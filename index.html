@@ -8,7 +8,6 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/custom.css?v3" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
     <script type="text/javascript" src="javascript/jquery-1.11.3.min.js"></script>
   </head>
   <body>
@@ -56,10 +55,24 @@
 
     <footer class="site-footer">
       <section class="container">
-        <div class="site-footer-credits">Created by <a href="http://dchiloeches.com" target="_blank">dchiloeches</a> alias necro_txilok</div>
+       <div class="social-buttons">
+          <a href="http://dchiloeches.com/" class="social-btn portfolio" target="_blank" tabindex="-1"><img src="images/portfolio.png"/></a>
+          <a href="https://www.facebook.com/necro.txilok" class="social-btn facebook" target="_blank" tabindex="-1"><img src="images/facebook.png"/></a>
+          <a href="https://es.pinterest.com/necro_txilok/" class="social-btn pinterest" target="_blank" tabindex="-1"><img src="images/pinterest.png"/></a>
+          <a href="https://plus.google.com/+DavidChiloechesSu%C3%A1rez" class="social-btn google-plus" target="_blank" tabindex="-1"><img src="images/gplus.png"/></a>
+          <a href="necro_txilok(at)hotmail(dot)com" class="social-btn contact" tabindex="-1"><img src="images/email.png"/></a>
+        </div>        
       </section>
     </footer>
+
   
+    <script type="text/javascript">
+      (function() {
+        var r = $('.contact').attr('href');
+        $('.contact').attr('href', 'mailto:' + r.replace('(at)', '@').replace('(dot)', '.'));
+      })();
+    </script>
+
   </body>
 </html>
 

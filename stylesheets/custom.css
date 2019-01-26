@@ -14,7 +14,7 @@ body {
 }
 
 .grid-item {
-  width: 320px; 
+  width: 33%; 
   float: left;
 }
 
@@ -61,13 +61,28 @@ body {
 .site-footer {
   border: none;
   background: #212121;
-  padding: 2rem;
-}
-
-.site-footer-credits {
-    color: #818181;
+  padding: 2rem 0;
 }
 
 .site-footer a {
+  display: inline-block;
   color: #fff;
+  margin-right: 4px;
+  outline: none;
+}
+
+@media screen and (max-width: 680px) {
+  .projects-list {
+    padding: 0;
+    margin: 0;
+  } 
+  .grid-item {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .grid-item {
+    width: 100%;
+  }
 }
