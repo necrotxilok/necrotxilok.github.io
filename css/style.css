@@ -13,9 +13,10 @@ body {
 	line-height: 1.5;
 	color: #606c71;
 	background-color: #001920;
-	background-image: url('../images/background.jpg');
+	background-image: url('../images/background.png?v=1688536528');
+	background-size: cover;
 	background-attachment: fixed;
-	background-position: center;
+	background-position: top center;
 }
 
 a {
@@ -235,7 +236,7 @@ a:hover {
 	transition: all 0.2s ease-in-out;
 	overflow: hidden;
 }
-.project:hover {
+.grid-item:hover .project {
 	top: -10px;
 	box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
 }
