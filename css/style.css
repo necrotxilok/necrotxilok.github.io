@@ -49,24 +49,24 @@ a:hover {
 
 /* HEADER */
 
-.page-header {
+header {
 	color: #fff;
 	background-size: cover;
 	background-attachment: fixed;
 	text-align: center;
 }
-.page-header .overlay {
+header .overlay {
 	background-color: rgba(0,0,0,0.5);
 }
-.page-header img {
+header .user-img {
 	width: 200px;
 	margin: 20px;
 	border-radius: 50%;
 }
-.page-title {
+header .title {
 	margin-bottom: 0.1rem;
 }
-.page-subtitle {
+header .subtitle {
 	margin-top: 0.2rem;
 	margin-bottom: 0;
 	font-size: 14px;
