@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Docs: Components | Previous.js</title>
+	<link rel="icon" type="image/x-icon" href="/previous-js/favicon.ico">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="/previous-js/css/style.css">
+<link rel="stylesheet" type="text/css" href="/previous-js/vendor/highlight/styles/atom-one-dark.min.css">
+<link rel="stylesheet" type="text/css" href="/previous-js/css/docs.css">
+
+	<script type="text/javascript" src="/previous-js/previous.js"></script>
+<script type="text/javascript" src="/previous-js/js/app.js"></script>
+<script type="text/javascript" src="/previous-js/vendor/highlight/highlight.min.js"></script>
+<script type="text/javascript" src="/previous-js/js/docs.js"></script>
+
+</head>
+<body>
+	<header>
+	<div class="container flex flex-left">
+		<div class="logo">
+			<a href="/previous-js/"><img src="/previous-js/img/logo-inverted.png"></a>
+		</div>
+		<nav class="menu flex">
+			<a href="/previous-js/showcase">Showcase</a>
+			<a href="/previous-js/docs/intro">Docs</a>
+			<a href="https://www.w3schools.com/jquery/default.asp" target="_blank">Learn</a>
+			<a href="https://blog.jquery.com/" target="_blank">Blog</a>
+			<a href="https://tympanus.net/codrops/category/blueprints/" target="_blank">Blueprints</a>
+		</nav>
+	</div>
+</header>
+<main>
+	<div class="container">
+		
+<section class="docs">
+	<nav class="articles menu">
+		<h1>Docs</h1>
+		<a href="/previous-js/docs/intro">Getting Started</a>
+<a href="/previous-js/docs/installation">Installation</a>
+<a href="/previous-js/docs/structure">Project Structure</a>
+<a href="/previous-js/docs/routing">Routing</a>
+<a href="/previous-js/docs/rendering">Rendering</a>
+<a href="/previous-js/docs/props">Props</a>
+<a href="/previous-js/docs/require">Require</a>
+<a href="/previous-js/docs/components" class="active">Components</a>
+<a href="/previous-js/docs/apis">APIs</a>
+<a href="/previous-js/docs/data">Data</a>
+<a href="/previous-js/docs/errors">Error Handling</a>
+<a href="/previous-js/docs/publishing">Publishing</a>
+<a href="/previous-js/docs/reference">Reference</a>
+	</nav>
+	<article class="content">
+		<div class="anchor" id="components"></div><h1 data-id="components">Components</h1><p>Components in Previous.js are parts of HTML you can use in pages and layouts to easy create the content without repeating code.</p><p>The components can be used in server and client side, but you have to take some considerations.</p><div class="anchor" id="organization"></div><h2 data-id="organization">Organization</h2><p>If you want to use the component in client side you need to place the component file inside the <code>&#99;&#111;&#109;&#112;&#111;&#110;&#101;&#110;&#116;&#115;&#47;</code> root folder.</p><p>If you do not need to use these components in client side you can use any other folder you want. For example <code>&#97;&#112;&#112;&#47;&#99;&#111;&#109;&#112;&#111;&#110;&#101;&#110;&#116;&#115;&#47;&#77;&#101;&#110;&#117;&#46;&#106;&#115;</code>.</p><p>You can place the files organized with any folder structure into this folder.</p><blockquote><p><strong>Remember!</strong></p><p>Folders into <code>&#97;&#112;&#112;&#47;</code> cannot be enrouted unless the folder has a <code>&#112;&#97;&#103;&#101;&#46;&#106;&#115;</code> or <code>&#114;&#111;&#117;&#116;&#101;&#46;&#106;&#115;</code> files, so you can use any folder to save components inside <code>&#97;&#112;&#112;&#47;</code>.</p></blockquote><blockquote><p><strong>Good to know</strong></p><p>Any folder starting with <code>&#95;</code> into <code>&#97;&#112;&#112;&#47;</code> folder will be ignored for routing.</p></blockquote><div class="anchor" id="creating-components"></div><h2 data-id="creating-components">Creating Components</h2><p>To create a component, write an object with a <code>&#114;&#101;&#110;&#100;&#101;&#114;</code> method returning a string like this.</p><div class="codeblock" language="javascript" description="app/components/Menu.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#114;&#101;&#110;&#100;&#101;&#114;&#58;&#32;&#40;&#105;&#116;&#101;&#109;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#99;&#111;&#110;&#115;&#116;&#32;&#101;&#108;&#101;&#109;&#101;&#110;&#116;&#115;&#32;&#61;&#32;&#105;&#116;&#101;&#109;&#115;&#46;&#109;&#97;&#112;&#40;&#40;&#105;&#116;&#101;&#109;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#96;&#60;&#108;&#105;&#62;&#60;&#97;&#32;&#104;&#114;&#101;&#102;&#61;&#34;&#36;&#123;&#105;&#116;&#101;&#109;&#46;&#117;&#114;&#108;&#125;&#34;&#62;&#36;&#123;&#105;&#116;&#101;&#109;&#46;&#116;&#105;&#116;&#108;&#101;&#125;&#60;&#47;&#97;&#62;&#60;&#47;&#108;&#105;&#62;&#96;&#59;&#13;
+&#32;&#32;&#32;&#32;&#125;&#41;&#46;&#106;&#111;&#105;&#110;&#40;&#39;&#39;&#41;&#59;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#96;&#60;&#117;&#108;&#62;&#36;&#123;&#101;&#108;&#101;&#109;&#101;&#110;&#116;&#115;&#125;&#60;&#47;&#117;&#108;&#62;&#96;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><blockquote><p><strong>Good to know</strong></p><p>By convention we call this method <code>&#114;&#101;&#110;&#100;&#101;&#114;</code>, but you can use any other name while it returns an string. You can also return the render function directly if you do not need an object.</p></blockquote><p>Creating a component for client and server side will look like this:</p><div class="codeblock" language="javascript" description="components/Card.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#114;&#101;&#110;&#100;&#101;&#114;&#58;&#32;&#40;&#99;&#97;&#114;&#100;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#96;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#97;&#32;&#104;&#114;&#101;&#102;&#61;&#34;&#36;&#123;&#99;&#97;&#114;&#100;&#46;&#117;&#114;&#108;&#125;&#34;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#99;&#97;&#114;&#100;&#34;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#100;&#105;&#118;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#99;&#97;&#114;&#100;&#45;&#116;&#105;&#116;&#108;&#101;&#34;&#62;&#36;&#123;&#99;&#97;&#114;&#100;&#46;&#116;&#105;&#116;&#108;&#101;&#125;&#60;&#47;&#100;&#105;&#118;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#100;&#105;&#118;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#99;&#97;&#114;&#100;&#45;&#100;&#101;&#115;&#99;&#114;&#105;&#112;&#116;&#105;&#111;&#110;&#34;&#62;&#36;&#123;&#99;&#97;&#114;&#100;&#46;&#100;&#101;&#115;&#99;&#114;&#105;&#112;&#116;&#105;&#111;&#110;&#125;&#60;&#47;&#100;&#105;&#118;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#47;&#97;&#62;&#13;
+&#32;&#32;&#32;&#32;&#96;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><blockquote><p><strong>Important!</strong></p><p>If you want to use the <strong>component</strong> in <strong>client side</strong> you can not use <code>&#114;&#101;&#113;&#117;&#105;&#114;&#101;</code>, <code>&#108;&#111;&#97;&#100;</code>, <code>&#114;&#101;&#97;&#100;</code> or <code>&#103;&#101;&#116;&#74;&#83;&#79;&#78;</code> functions into it. Learn about it in <a href="/previous-js/docs/require" >Require</a> section.</p></blockquote><div class="anchor" id="using-components"></div><h2 data-id="using-components">Using Components</h2><p>To use a Component inside any page or layout you have to use the <a href="/previous-js/docs/require#load" ><code>&#108;&#111;&#97;&#100;</code></a> function.</p><div class="codeblock" language="javascript" description="app/layout.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#58;&#32;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#99;&#111;&#110;&#115;&#116;&#32;&#109;&#101;&#110;&#117;&#32;&#61;&#32;&#108;&#111;&#97;&#100;&#40;&#39;&#97;&#112;&#112;&#47;&#99;&#111;&#109;&#112;&#111;&#110;&#101;&#110;&#116;&#115;&#47;&#77;&#101;&#110;&#117;&#46;&#106;&#115;&#39;&#41;&#59;&#13;
+&#32;&#32;&#32;&#32;&#99;&#111;&#110;&#115;&#116;&#32;&#105;&#116;&#101;&#109;&#115;&#32;&#61;&#32;&#91;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#123;&#117;&#114;&#108;&#58;&#32;&#39;&#47;&#39;&#44;&#32;&#116;&#105;&#116;&#108;&#101;&#58;&#32;&#39;&#72;&#111;&#109;&#101;&#39;&#125;&#44;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#123;&#117;&#114;&#108;&#58;&#32;&#39;&#47;&#100;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#39;&#44;&#32;&#116;&#105;&#116;&#108;&#101;&#58;&#32;&#39;&#68;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#39;&#125;&#44;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#123;&#117;&#114;&#108;&#58;&#32;&#39;&#47;&#115;&#97;&#109;&#112;&#108;&#101;&#115;&#39;&#44;&#32;&#116;&#105;&#116;&#108;&#101;&#58;&#32;&#39;&#83;&#97;&#109;&#112;&#108;&#101;&#115;&#39;&#125;&#44;&#13;
+&#32;&#32;&#32;&#32;&#93;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#96;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#100;&#105;&#118;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#109;&#101;&#110;&#117;&#34;&#62;&#36;&#123;&#109;&#101;&#110;&#117;&#46;&#114;&#101;&#110;&#100;&#101;&#114;&#40;&#105;&#116;&#101;&#109;&#115;&#41;&#125;&#60;&#47;&#100;&#105;&#118;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#100;&#105;&#118;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#34;&#62;&#36;&#123;&#112;&#114;&#111;&#112;&#115;&#46;&#99;&#111;&#110;&#101;&#110;&#116;&#125;&#60;&#47;&#100;&#105;&#118;&#62;&#13;
+&#32;&#32;&#32;&#32;&#96;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><p>To use a component in client side you must save the component into <code>&#99;&#111;&#109;&#112;&#111;&#110;&#101;&#110;&#116;&#115;&#47;</code> root folder in your project.</p><p>Then in client side, you will have access to this object from <code>&#112;&#114;&#101;&#118;&#105;&#111;&#117;&#115;&#46;&#99;&#111;&#109;&#112;&#111;&#110;&#101;&#110;&#116;&#115;&#46;&#42;</code>.</p><div class="codeblock" language="javascript" description="app/example/page.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#58;&#32;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#39;&#60;&#100;&#105;&#118;&#32;&#105;&#100;&#61;&#34;&#99;&#97;&#114;&#100;&#115;&#67;&#111;&#110;&#116;&#97;&#105;&#110;&#101;&#114;&#34;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#103;&#114;&#105;&#100;&#34;&#62;&#60;&#47;&#100;&#105;&#118;&#62;&#39;&#59;&#13;
+&#32;&#32;&#125;&#44;&#13;
+&#32;&#32;&#114;&#101;&#97;&#100;&#121;&#58;&#32;&#40;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#47;&#47;&#32;&#71;&#101;&#116;&#32;&#67;&#111;&#109;&#112;&#111;&#110;&#101;&#110;&#116;&#13;
+&#32;&#32;&#32;&#32;&#99;&#111;&#110;&#115;&#116;&#32;&#67;&#97;&#114;&#100;&#32;&#61;&#32;&#112;&#114;&#101;&#118;&#105;&#111;&#117;&#115;&#46;&#99;&#111;&#109;&#112;&#111;&#110;&#101;&#110;&#116;&#115;&#46;&#67;&#97;&#114;&#100;&#59;&#13;
+&#32;&#32;&#32;&#32;&#47;&#47;&#32;&#71;&#101;&#116;&#32;&#99;&#111;&#110;&#116;&#97;&#105;&#110;&#101;&#114;&#32;&#105;&#110;&#32;&#68;&#79;&#77;&#13;
+&#32;&#32;&#32;&#32;&#99;&#111;&#110;&#115;&#116;&#32;&#36;&#99;&#97;&#114;&#100;&#115;&#67;&#111;&#110;&#116;&#97;&#105;&#110;&#101;&#114;&#32;&#61;&#32;&#36;&#40;&#39;&#35;&#99;&#97;&#114;&#100;&#115;&#67;&#111;&#110;&#116;&#97;&#105;&#110;&#101;&#114;&#39;&#41;&#59;&#13;
+&#32;&#32;&#32;&#32;&#36;&#99;&#97;&#114;&#100;&#115;&#67;&#111;&#110;&#116;&#97;&#105;&#110;&#101;&#114;&#46;&#101;&#109;&#112;&#116;&#121;&#40;&#41;&#59;&#13;
+&#32;&#32;&#32;&#32;&#47;&#47;&#32;&#70;&#101;&#116;&#99;&#104;&#32;&#68;&#97;&#116;&#97;&#32;&#102;&#114;&#111;&#109;&#32;&#83;&#101;&#114;&#118;&#101;&#114;&#13;
+&#32;&#32;&#32;&#32;&#36;&#46;&#103;&#101;&#116;&#40;&#39;&#47;&#97;&#112;&#105;&#47;&#99;&#97;&#114;&#100;&#115;&#39;&#44;&#32;&#40;&#99;&#97;&#114;&#100;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#99;&#97;&#114;&#100;&#115;&#46;&#109;&#97;&#112;&#40;&#40;&#99;&#97;&#114;&#100;&#68;&#97;&#116;&#97;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#47;&#47;&#32;&#82;&#101;&#110;&#100;&#101;&#114;&#32;&#67;&#97;&#114;&#100;&#32;&#67;&#111;&#109;&#112;&#111;&#110;&#101;&#110;&#116;&#32;&#105;&#110;&#115;&#105;&#100;&#101;&#32;&#116;&#104;&#101;&#32;&#99;&#111;&#110;&#116;&#97;&#105;&#110;&#101;&#114;&#32;&#119;&#105;&#116;&#104;&#32;&#106;&#81;&#117;&#101;&#114;&#121;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#36;&#99;&#97;&#114;&#100;&#115;&#67;&#111;&#110;&#116;&#97;&#105;&#110;&#101;&#114;&#46;&#97;&#112;&#112;&#101;&#110;&#100;&#40;&#67;&#97;&#114;&#100;&#46;&#114;&#101;&#110;&#100;&#101;&#114;&#40;&#99;&#97;&#114;&#100;&#68;&#97;&#116;&#97;&#41;&#41;&#59;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#125;&#41;&#59;&#13;
+&#32;&#32;&#32;&#32;&#125;&#41;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><p>If you save the component into a directory inside <code>&#99;&#111;&#109;&#112;&#111;&#110;&#101;&#110;&#116;&#115;&#47;</code> folder then you have to use the folder name as the container object of the component.</p><p>For example, if the component is saved in <code>&#99;&#111;&#109;&#112;&#111;&#110;&#101;&#110;&#116;&#115;&#47;&#98;&#111;&#111;&#107;&#115;&#47;&#66;&#111;&#111;&#107;&#86;&#105;&#101;&#119;&#46;&#106;&#115;</code> then the component will be accessible from <code>&#112;&#114;&#101;&#118;&#105;&#111;&#117;&#115;&#46;&#99;&#111;&#109;&#112;&#111;&#110;&#101;&#110;&#116;&#115;&#46;&#98;&#111;&#111;&#107;&#115;&#46;&#66;&#111;&#111;&#107;&#86;&#105;&#101;&#119;</code> object in client side.</p><div class="codeblock" language="javascript" description="app/books/page.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#58;&#32;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#39;&#60;&#100;&#105;&#118;&#32;&#105;&#100;&#61;&#34;&#99;&#97;&#114;&#100;&#115;&#67;&#111;&#110;&#116;&#97;&#105;&#110;&#101;&#114;&#34;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#103;&#114;&#105;&#100;&#34;&#62;&#60;&#47;&#100;&#105;&#118;&#62;&#39;&#59;&#13;
+&#32;&#32;&#125;&#44;&#13;
+&#32;&#32;&#114;&#101;&#97;&#100;&#121;&#58;&#32;&#40;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#13;
+&#32;&#32;&#32;&#32;&#46;&#46;&#46;&#13;
+&#13;
+&#32;&#32;&#32;&#32;&#99;&#111;&#110;&#115;&#116;&#32;&#66;&#111;&#111;&#107;&#86;&#105;&#101;&#119;&#32;&#61;&#32;&#112;&#114;&#101;&#118;&#105;&#111;&#117;&#115;&#46;&#99;&#111;&#109;&#112;&#111;&#110;&#101;&#110;&#116;&#115;&#46;&#98;&#111;&#111;&#107;&#115;&#46;&#66;&#111;&#111;&#107;&#86;&#105;&#101;&#119;&#59;&#13;
+&#32;&#32;&#32;&#32;&#13;
+&#32;&#32;&#32;&#32;&#46;&#46;&#46;&#13;
+&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><blockquote><p><strong>Remember!</strong></p><p>If you want to use the <strong>component</strong> in <strong>client side</strong> you can not use <code>&#114;&#101;&#113;&#117;&#105;&#114;&#101;</code>, <code>&#108;&#111;&#97;&#100;</code>, <code>&#114;&#101;&#97;&#100;</code> or <code>&#103;&#101;&#116;&#74;&#83;&#79;&#78;</code> functions into it. Learn about it in <a href="/previous-js/docs/require" >Require</a> section.</p></blockquote>
+		<div class="nav-buttons"></div>
+	</article>
+	<nav class="index menu">
+		<h5 class="index-header">On this page</h5>
+		<a href="#organization" class="level-2">Organization</a>
+<a href="#creating-components" class="level-2">Creating Components</a>
+<a href="#using-components" class="level-2">Using Components</a>
+	</nav>
+</section>
+<script type="text/javascript">
+$(function() {
+		docs.highlightCode();
+		docs.setNavigationButtons();
+		setTimeout(function() {
+			docs.linkDocumentHeaders();
+		}, 100);
+	});
+</script>
+	</div>
+</main>
+<footer>
+	<div class="container">
+		<div class="content">
+			<div class="grid-columns-6">
+				<div><p><img src="/previous-js/img/logo-inverted.png"></p></div>
+				<div>
+					<p><b>Resources</b></p>
+					<p><a href="/previous-js/showcase">Showcase</a></p>
+					<p><a href="/previous-js/docs/intro">Docs</a></p>
+					<p><a href="https://www.w3schools.com/jquery/default.asp" target="_blank">Learn</a></p>
+					<p><a href="https://blog.jquery.com/" target="_blank">Blog</a></p>
+					<p><a href="https://tympanus.net/codrops/category/blueprints/" target="_blank">Blueprints</a></p>
+				</div>
+				<div>
+					<p><b>More</b></p>
+					<p><a href="https://github.com/necrotxilok/previous.js" target="_blank">Source</a></p>
+					<p><a href="https://github.com/necrotxilok/previous.js/releases" target="_blank">Releases</a></p>
+					<p><a href="https://github.com/necrotxilok/previous.js/blob/main/LICENSE" target="_blank">License</a></p>
+					<p><a href="https://www.paypal.com/donate/?hosted_button_id=BFGBHCXK2A2GL" target="_blank">Donate</a></p>
+				</div>
+				<div>
+					<p><b>About</b></p>
+					<p><a href="https://necrotxilok.github.io/" target="_blank">Projects</a></p>
+					<p><a href="https://github.com/necrotxilok" target="_blank">GitHub</a></p>
+					<p><a href="https://twitter.com/necro_txilok/" target="_blank">Twitter</a></p>
+					<p><a href="necro_txilok(at)hotmail(dot)com" class="js-cm">Contact</a></p>
+					<script type="text/javascript">(function(){var r=document.querySelector('.js-cm').getAttribute('href');document.querySelector('.js-cm').setAttribute('href','mailto:'+r.replace('(at)','@').replace('(dot)','.'));})();</script>
+				</div>
+				<div>
+					<p><b>Legal</b></p>
+					<p><a href="/previous-js/legal#disclaimer">Disclaimer</a></p>
+					<p><a href="/previous-js/legal#privacy">Privacy</a></p>
+					<p><a href="/previous-js/legal#cookies">Cookies</a></p>
+				</div>
+				<div>
+					<p><b>Newsletter</b></p>
+					<p>Stay updated on new releases and features, guides, and case studies.</p>
+					<form class="subscribe-form">
+						<input type="email" class="input" placeholder="your@email.com">
+						<input type="submit" class="submit" value="Subscribe">
+					</form>
+					<p><small class="subscribe-form-result"></small></p>
+				</div>
+			</div>
+		</div>
+		<div class="author">@ 2023 - Developed by <a href="https://necrotxilok.github.io/" target="_blank">necro_txilok <span class="external"></span></a></div>
+	</div>
+</footer>
+<script type="text/javascript">
+$(function() {
+		$('.subscribe-form').on('submit', function(e) {
+			e.preventDefault();
+			$('.subscribe-form-result').text('Please, do not send us your email. It goes against our privacy policy.')
+		});
+	});
+</script>
+</body>
+</html>

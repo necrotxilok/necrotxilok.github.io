@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Docs: Installation | Previous.js</title>
+	<link rel="icon" type="image/x-icon" href="/previous-js/favicon.ico">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="/previous-js/css/style.css">
+<link rel="stylesheet" type="text/css" href="/previous-js/vendor/highlight/styles/atom-one-dark.min.css">
+<link rel="stylesheet" type="text/css" href="/previous-js/css/docs.css">
+
+	<script type="text/javascript" src="/previous-js/previous.js"></script>
+<script type="text/javascript" src="/previous-js/js/app.js"></script>
+<script type="text/javascript" src="/previous-js/vendor/highlight/highlight.min.js"></script>
+<script type="text/javascript" src="/previous-js/js/docs.js"></script>
+
+</head>
+<body>
+	<header>
+	<div class="container flex flex-left">
+		<div class="logo">
+			<a href="/previous-js/"><img src="/previous-js/img/logo-inverted.png"></a>
+		</div>
+		<nav class="menu flex">
+			<a href="/previous-js/showcase">Showcase</a>
+			<a href="/previous-js/docs/intro">Docs</a>
+			<a href="https://www.w3schools.com/jquery/default.asp" target="_blank">Learn</a>
+			<a href="https://blog.jquery.com/" target="_blank">Blog</a>
+			<a href="https://tympanus.net/codrops/category/blueprints/" target="_blank">Blueprints</a>
+		</nav>
+	</div>
+</header>
+<main>
+	<div class="container">
+		
+<section class="docs">
+	<nav class="articles menu">
+		<h1>Docs</h1>
+		<a href="/previous-js/docs/intro">Getting Started</a>
+<a href="/previous-js/docs/installation" class="active">Installation</a>
+<a href="/previous-js/docs/structure">Project Structure</a>
+<a href="/previous-js/docs/routing">Routing</a>
+<a href="/previous-js/docs/rendering">Rendering</a>
+<a href="/previous-js/docs/props">Props</a>
+<a href="/previous-js/docs/require">Require</a>
+<a href="/previous-js/docs/components">Components</a>
+<a href="/previous-js/docs/apis">APIs</a>
+<a href="/previous-js/docs/data">Data</a>
+<a href="/previous-js/docs/errors">Error Handling</a>
+<a href="/previous-js/docs/publishing">Publishing</a>
+<a href="/previous-js/docs/reference">Reference</a>
+	</nav>
+	<article class="content">
+		<div class="anchor" id="installation"></div><h1 data-id="installation">Installation</h1><p>System Requirements:</p><ul><li><a href="https://nodejs.org/" target="_blank">Node.js 16.8</a> or later.</li><li>Windows and Linux are supported (I do not have a MAC to test if it works).</li></ul><div class="anchor" id="automatic-installation"></div><h2 data-id="automatic-installation">Automatic Installation</h2><p>We recommend starting a new Previous.js app using <code>&#99;&#114;&#101;&#97;&#116;&#101;&#95;&#112;&#114;&#101;&#118;&#105;&#111;&#117;&#115;&#95;&#97;&#112;&#112;</code>, which sets up everything automatically for you.</p><p>1. Run the following command to download the creation script:</p><div class="codeblock" language="terminal" description="In Windows"><pre class="codeblock-body">&#112;&#111;&#119;&#101;&#114;&#115;&#104;&#101;&#108;&#108;&#32;&#45;&#67;&#111;&#109;&#109;&#97;&#110;&#100;&#32;&#34;&#73;&#110;&#118;&#111;&#107;&#101;&#45;&#87;&#101;&#98;&#82;&#101;&#113;&#117;&#101;&#115;&#116;&#32;&#45;&#85;&#114;&#105;&#32;&#104;&#116;&#116;&#112;&#115;&#58;&#47;&#47;&#114;&#97;&#119;&#46;&#103;&#105;&#116;&#104;&#117;&#98;&#117;&#115;&#101;&#114;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#46;&#99;&#111;&#109;&#47;&#110;&#101;&#99;&#114;&#111;&#116;&#120;&#105;&#108;&#111;&#107;&#47;&#112;&#114;&#101;&#118;&#105;&#111;&#117;&#115;&#46;&#106;&#115;&#47;&#109;&#97;&#105;&#110;&#47;&#99;&#114;&#101;&#97;&#116;&#101;&#95;&#112;&#114;&#101;&#118;&#105;&#111;&#117;&#115;&#95;&#97;&#112;&#112;&#46;&#98;&#97;&#116;&#32;&#45;&#79;&#117;&#116;&#70;&#105;&#108;&#101;&#32;&#99;&#114;&#101;&#97;&#116;&#101;&#95;&#112;&#114;&#101;&#118;&#105;&#111;&#117;&#115;&#95;&#97;&#112;&#112;&#46;&#98;&#97;&#116;&#34;&#13;
+</pre></div><div class="codeblock" language="terminal" description="In Linux"><pre class="codeblock-body">&#119;&#103;&#101;&#116;&#32;&#104;&#116;&#116;&#112;&#115;&#58;&#47;&#47;&#114;&#97;&#119;&#46;&#103;&#105;&#116;&#104;&#117;&#98;&#117;&#115;&#101;&#114;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#46;&#99;&#111;&#109;&#47;&#110;&#101;&#99;&#114;&#111;&#116;&#120;&#105;&#108;&#111;&#107;&#47;&#112;&#114;&#101;&#118;&#105;&#111;&#117;&#115;&#46;&#106;&#115;&#47;&#109;&#97;&#105;&#110;&#47;&#99;&#114;&#101;&#97;&#116;&#101;&#95;&#112;&#114;&#101;&#118;&#105;&#111;&#117;&#115;&#95;&#97;&#112;&#112;&#46;&#115;&#104;&#13;
+</pre></div><p>2. Create the new application running:</p><div class="codeblock" language="terminal" description="In Windows"><pre class="codeblock-body">&#99;&#114;&#101;&#97;&#116;&#101;&#95;&#112;&#114;&#101;&#118;&#105;&#111;&#117;&#115;&#95;&#97;&#112;&#112;&#46;&#98;&#97;&#116;&#32;&#77;&#121;&#65;&#112;&#112;&#13;
+</pre></div><div class="codeblock" language="terminal" description="In Linux"><pre class="codeblock-body">&#98;&#97;&#115;&#104;&#32;&#46;&#47;&#99;&#114;&#101;&#97;&#116;&#101;&#95;&#112;&#114;&#101;&#118;&#105;&#111;&#117;&#115;&#95;&#97;&#112;&#112;&#46;&#115;&#104;&#32;&#77;&#121;&#65;&#112;&#112;&#13;
+</pre></div><p>This command creates a folder in current directory called <code>&#77;&#121;&#65;&#112;&#112;</code> with all the necessary files.</p><blockquote><p><strong>Good to know</strong></p><p>Save this script into a custom PATH enviroment directory to create Previous.js Apps from any directory in your system.</p></blockquote><div class="anchor" id="manual-installation"></div><h2 data-id="manual-installation">Manual Installation</h2><p>1. Download Previous.js latest release from <a href="https://github.com/necrotxilok/previous.js/releases" target="_blank">GitHub</a>.</p><p>2. Uncompress all the contents from the folder <code>&#115;&#114;&#99;&#47;</code> into the desired app folder. For example <code>&#77;&#121;&#65;&#112;&#112;&#47;</code>.</p><div class="anchor" id="availabe-scripts"></div><h2 data-id="availabe-scripts">Availabe Scripts</h2><p>These scripts refer to the different stages of developing an application:</p><ul><li><code>&#115;&#116;&#97;&#114;&#116;</code>: Start Previous.js in live mode for development and production servers.</li><li><code>&#98;&#117;&#105;&#108;&#100;</code>: Build the entire application into static files.</li></ul><div class="anchor" id="start-the-web-server"></div><h2 data-id="start-the-web-server">Start the Web Server</h2><p>1. Open a terminal in the project folder (<code>&#77;&#121;&#65;&#112;&#112;&#47;</code>) and start the web server running:</p><div class="codeblock" language="terminal" description="In Windows"><pre class="codeblock-body">&#115;&#116;&#97;&#114;&#116;&#46;&#98;&#97;&#116;&#13;
+</pre></div><div class="codeblock" language="terminal" description="In Linux"><pre class="codeblock-body">&#46;&#47;&#115;&#116;&#97;&#114;&#116;&#46;&#115;&#104;&#13;
+</pre></div><p>2. Now you can open <a href="http://localhost:8888" target="_blank">http://localhost:8888</a> in your browser to see your new web app alive.</p><p>By default Previous.js comes with a basic <strong>Hello World</strong> App.</p><blockquote><p><strong>Good to know</strong></p><p>Press Ctrl+C twice to stop the web server.</p></blockquote><div class="anchor" id="app-routing"></div><h3 data-id="app-routing">App Routing</h3><p>Previous.js uses file-system routing, which means the routes in your application are determined by how you structure your files.</p><p>In <code>&#97;&#112;&#112;&#47;</code> folder you will find two files, <code>&#108;&#97;&#121;&#111;&#117;&#116;&#46;&#106;&#115;</code> and <code>&#112;&#97;&#103;&#101;&#46;&#106;&#115;</code>.</p><p><img src="/previous-js/img/docs/installation/diagram_01.png" alt=""/></p><p>Learn more about <a href="/previous-js/docs/routing" >using the router</a>.</p><div class="anchor" id="creating-your-first-app-from-scratch"></div><h3 data-id="creating-your-first-app-from-scratch">Creating your first App from scratch</h3><p>First add the <code>&#97;&#112;&#112;&#47;</code> folder into your project directory.</p><p>This folder contains the main project files and its structure represents the navigation of the router.</p><p>Now, create the root layout with this script:</p><div class="codeblock" language="javascript" description="app/layout.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#58;&#32;&#40;&#123;&#32;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#32;&#125;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#96;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#100;&#105;&#118;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#99;&#111;&#110;&#116;&#97;&#105;&#110;&#101;&#114;&#34;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#100;&#105;&#118;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#109;&#97;&#105;&#110;&#34;&#62;&#36;&#123;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#125;&#60;&#47;&#100;&#105;&#118;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#47;&#100;&#105;&#118;&#62;&#13;
+&#32;&#32;&#32;&#32;&#96;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><p>Finally, create a home page with some initial content:</p><div class="codeblock" language="javascript" description="app/page.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#58;&#32;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#96;&#60;&#104;&#49;&#62;&#72;&#101;&#108;&#108;&#111;&#44;&#32;&#80;&#114;&#101;&#118;&#105;&#111;&#117;&#115;&#46;&#106;&#115;&#33;&#60;&#47;&#104;&#49;&#62;&#96;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><p>These files will be rendered when the user visits the root of your application (<code>&#47;</code>).</p><p>Learn more ways to <a href="/previous-js/docs/rendering" >render contents</a> with Previous.js.</p><div class="anchor" id="static-assets"></div><h3 data-id="static-assets">Static Assets</h3><p>Create the <code>&#112;&#117;&#98;&#108;&#105;&#99;&#47;</code> folder to store static assets such as images, fonts, stylesheets, vendor libraries, custom scripts, etc.</p><p>Files inside <code>&#112;&#117;&#98;&#108;&#105;&#99;&#47;</code> directory can then be referenced by your code starting from the base URL (<code>&#47;</code>).</p><p>Learn more about <a href="/previous-js/docs/structure" >the project structure</a>.</p><blockquote><p><strong>Good to know</strong></p><p>If you forget to create <code>&#108;&#97;&#121;&#111;&#117;&#116;&#46;&#106;&#115;</code> or <code>&#112;&#97;&#103;&#101;&#46;&#106;&#115;</code>, Previous.js will show an error. This files are required to run a basic web app.</p></blockquote><div class="anchor" id="development-server"></div><h2 data-id="development-server">Development Server</h2><p>Once you have started the server, any change made in the files inside the <code>&#97;&#112;&#112;</code> directory will be updated.</p><p>To see the changes you have to press <code>&#70;&#53;</code> or <code>&#67;&#116;&#114;&#108;&#43;&#82;</code> to reload the page.</p><blockquote><p><strong>Important!</strong></p><p>There is no hot reload, it is absolutely unnecessary and consumes a lot of memory and processor capacity.</p></blockquote><div class="anchor" id="production-server"></div><h2 data-id="production-server">Production Server</h2><p><strong>Not recommend!</strong> but, if you still want to use in production, execute this command:</p><div class="codeblock" language="terminal" description="In Windows"><pre class="codeblock-body">&#115;&#116;&#97;&#114;&#116;&#46;&#98;&#97;&#116;&#32;&#62;&#32;&#108;&#111;&#103;&#46;&#116;&#120;&#116;&#13;
+</pre></div><div class="codeblock" language="terminal" description="In Linux"><pre class="codeblock-body">&#46;&#47;&#115;&#116;&#97;&#114;&#116;&#46;&#115;&#104;&#32;&#62;&#32;&#108;&#111;&#103;&#46;&#116;&#120;&#116;&#32;&#38;&#13;
+</pre></div><div class="anchor" id="build-static-files"></div><h2 data-id="build-static-files">Build Static Files</h2><p>Once your project is ready to be published run the followind command into the project folder:</p><div class="codeblock" language="terminal" description="In Windows"><pre class="codeblock-body">&#98;&#117;&#105;&#108;&#100;&#46;&#98;&#97;&#116;&#13;
+</pre></div><div class="codeblock" language="terminal" description="In Linux"><pre class="codeblock-body">&#46;&#47;&#98;&#117;&#105;&#108;&#100;&#46;&#115;&#104;&#13;
+</pre></div><p>Wait the process to be completed and all the static files will be ready into the <code>&#98;&#117;&#105;&#108;&#100;&#47;</code> folder.</p><blockquote><p><strong>Warning!</strong></p><p>All files and directories in <code>&#98;&#117;&#105;&#108;&#100;&#47;</code> will be removed when starting build process.</p></blockquote>
+		<div class="nav-buttons"></div>
+	</article>
+	<nav class="index menu">
+		<h5 class="index-header">On this page</h5>
+		<a href="#automatic-installation" class="level-2">Automatic Installation</a>
+<a href="#manual-installation" class="level-2">Manual Installation</a>
+<a href="#availabe-scripts" class="level-2">Availabe Scripts</a>
+<a href="#start-the-web-server" class="level-2">Start the Web Server</a>
+<a href="#app-routing" class="level-3">App Routing</a>
+<a href="#creating-your-first-app-from-scratch" class="level-3">Creating your first App from scratch</a>
+<a href="#static-assets" class="level-3">Static Assets</a>
+<a href="#development-server" class="level-2">Development Server</a>
+<a href="#production-server" class="level-2">Production Server</a>
+<a href="#build-static-files" class="level-2">Build Static Files</a>
+	</nav>
+</section>
+<script type="text/javascript">
+$(function() {
+		docs.highlightCode();
+		docs.setNavigationButtons();
+		setTimeout(function() {
+			docs.linkDocumentHeaders();
+		}, 100);
+	});
+</script>
+	</div>
+</main>
+<footer>
+	<div class="container">
+		<div class="content">
+			<div class="grid-columns-6">
+				<div><p><img src="/previous-js/img/logo-inverted.png"></p></div>
+				<div>
+					<p><b>Resources</b></p>
+					<p><a href="/previous-js/showcase">Showcase</a></p>
+					<p><a href="/previous-js/docs/intro">Docs</a></p>
+					<p><a href="https://www.w3schools.com/jquery/default.asp" target="_blank">Learn</a></p>
+					<p><a href="https://blog.jquery.com/" target="_blank">Blog</a></p>
+					<p><a href="https://tympanus.net/codrops/category/blueprints/" target="_blank">Blueprints</a></p>
+				</div>
+				<div>
+					<p><b>More</b></p>
+					<p><a href="https://github.com/necrotxilok/previous.js" target="_blank">Source</a></p>
+					<p><a href="https://github.com/necrotxilok/previous.js/releases" target="_blank">Releases</a></p>
+					<p><a href="https://github.com/necrotxilok/previous.js/blob/main/LICENSE" target="_blank">License</a></p>
+					<p><a href="https://www.paypal.com/donate/?hosted_button_id=BFGBHCXK2A2GL" target="_blank">Donate</a></p>
+				</div>
+				<div>
+					<p><b>About</b></p>
+					<p><a href="https://necrotxilok.github.io/" target="_blank">Projects</a></p>
+					<p><a href="https://github.com/necrotxilok" target="_blank">GitHub</a></p>
+					<p><a href="https://twitter.com/necro_txilok/" target="_blank">Twitter</a></p>
+					<p><a href="necro_txilok(at)hotmail(dot)com" class="js-cm">Contact</a></p>
+					<script type="text/javascript">(function(){var r=document.querySelector('.js-cm').getAttribute('href');document.querySelector('.js-cm').setAttribute('href','mailto:'+r.replace('(at)','@').replace('(dot)','.'));})();</script>
+				</div>
+				<div>
+					<p><b>Legal</b></p>
+					<p><a href="/previous-js/legal#disclaimer">Disclaimer</a></p>
+					<p><a href="/previous-js/legal#privacy">Privacy</a></p>
+					<p><a href="/previous-js/legal#cookies">Cookies</a></p>
+				</div>
+				<div>
+					<p><b>Newsletter</b></p>
+					<p>Stay updated on new releases and features, guides, and case studies.</p>
+					<form class="subscribe-form">
+						<input type="email" class="input" placeholder="your@email.com">
+						<input type="submit" class="submit" value="Subscribe">
+					</form>
+					<p><small class="subscribe-form-result"></small></p>
+				</div>
+			</div>
+		</div>
+		<div class="author">@ 2023 - Developed by <a href="https://necrotxilok.github.io/" target="_blank">necro_txilok <span class="external"></span></a></div>
+	</div>
+</footer>
+<script type="text/javascript">
+$(function() {
+		$('.subscribe-form').on('submit', function(e) {
+			e.preventDefault();
+			$('.subscribe-form-result').text('Please, do not send us your email. It goes against our privacy policy.')
+		});
+	});
+</script>
+</body>
+</html>

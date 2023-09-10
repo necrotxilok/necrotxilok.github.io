@@ -1,0 +1,298 @@
+
+section.docs {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+section.docs .articles {
+	flex: 0 0 252px;
+	padding: 24px 10px;
+	position: sticky;
+	top: 94px;	
+}
+
+section.docs .content {
+	flex: 1;
+	padding: 12px 20px;
+	line-height: 1.75;
+	max-width: calc(100% - 272px - 216px);
+}
+section.docs a[target="_blank"]:after {
+	content: "";
+	opacity: 0.3;
+	position: relative;
+	top: -6px;
+	right: -3px;
+	background-image: url('/previous-js/img/external.png');
+	background-position: center center;	
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 6px;
+	height: 8px;
+	display: inline-block;
+}
+section.docs .content h1 {
+	font-size: 225%;
+	font-weight: 600;
+	margin-bottom: 22px;
+}
+section.docs .content h2, 
+section.docs .content h3, 
+section.docs .content h4, 
+section.docs .content h5 {
+	font-weight: 600;
+}
+section.docs .content h2 {
+	margin-top: 80px;
+	padding-top: 40px;
+	border-top: 1px solid #222;
+}
+section.docs .content h3,
+section.docs .content h4,
+section.docs .content h5 {
+	margin-top: 40px;
+	padding-top: 20px;
+}
+section.docs .content h2 a, 
+section.docs .content h3 a, 
+section.docs .content h4 a, 
+section.docs .content h5 a {
+	color: #fff;
+}
+section.docs .content .copy-anchor-link:hover:after {
+	content: "Copy Link";
+	border: 1px solid #333;
+	background-color: #222;
+	margin: 10px;
+	font-size: 9px;
+	padding: 4px 6px;
+	border-radius: 8px;
+	position: relative;
+	top: -4px;
+	opacity: 0.3;
+}
+section.docs .content p {
+	color: #ddd;
+}
+section.docs .content img {
+	border: 1px solid #333;
+	border-radius: 8px;
+}
+section.docs .content code {
+	display: inline-block;
+	padding: 1px 8px;
+	background-color: #111;
+	margin: 0 1px;
+	border: 1px solid #222;
+	border-radius: 4px;
+}
+section.docs .content blockquote {
+	padding: 6px 22px;
+	margin: 20px 0;
+	background: #111;
+	border-radius: 4px;
+	font-size: 85%;
+	border-left: 4px solid #0aa9fb;
+}
+section.docs .content blockquote ul li {
+	margin: 5px 0;
+}
+section.docs .codeblock  {
+	border-radius: 6px;
+	overflow: hidden;
+	background-color: #111;
+	margin: 14px 0;
+	border: 1px solid #333;
+}
+section.docs .codeblock .codeblock-header {
+	padding: 10px;
+	font-size: 13px;
+	position: relative;
+	border-bottom: 1px solid #333;
+	display: flex;
+	color: #999;
+}
+section.docs .codeblock .codeblock-header .actions {
+	position: absolute;
+	top: 8px;
+	right: 4px;
+}
+section.docs .codeblock .codeblock-header .actions button {
+	padding: 5px 10px;
+	border-radius: 4px;
+	font-size: 13px;
+	cursor: pointer;
+}
+section.docs .codeblock pre.codeblock-body {
+	border-radius: 0;
+	padding: 30px;
+	margin: 0;
+	background-color: #151518;
+	white-space: break-spaces;
+	cursor: text;
+}
+section.docs .codeblock pre.codeblock-body.language-terminal {
+	padding-left: 50px;
+	position: relative;
+	color: #fff;
+}
+section.docs .codeblock pre.codeblock-body.language-terminal:before {
+	content: "$";
+	position: absolute;
+	left: 30px;
+	opacity: 0.5;
+}
+
+section.docs .index {
+	flex: 0 0 196px;
+	padding: 24px 10px;
+	position: sticky;
+	top: 94px;	
+}
+section.docs .index h5 {
+	font-weight: 600;
+	padding: 8px 0;
+	margin: 0;
+	font-size: 14px;
+}
+section.docs .index .level-3 {
+	padding-left: 10px;
+}
+
+section.docs .menu a {
+	font-size: 14px;
+	display: block;
+	padding: 7px 0;
+	color: #777;
+	transition: all 0.2s ease;
+}
+section.docs .menu a.active {
+	color: #fff;
+}
+section.docs .index.menu a.active {
+	color: #0aa9fb;
+}
+section.docs .menu a:hover {
+	color: #fff;
+}
+
+section.docs strong {
+	font-weight: 600;
+}
+
+section.docs ul {
+	list-style: none;
+	padding-left: 12px;
+}
+section.docs ul li {
+	position: relative;
+	padding-left: 12px;
+	line-height: 1.6;
+	margin: 10px 0;
+}
+section.docs ul li:before {
+	content: "-";
+	color: #555;
+	position: absolute;
+	left: -10px;
+}
+
+section.docs table {
+	font-size: 14px;
+	color: #ddd;
+	text-indent: 0;
+	border-collapse: collapse;
+	width: 100%;
+	table-layout: auto;
+	text-align: left;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+section.docs table th {
+	font-weight: 600;
+	color: #fff;
+}
+section.docs table th,
+section.docs table td {
+	padding: 8px;
+	border-bottom: 1px solid #222;
+	vertical-align: baseline;
+}
+section.docs table th:first-child,
+section.docs table td:first-child {
+	padding-left: 0;
+}
+section.docs table th:last-child,
+section.docs table td:last-child {
+	padding-right: 0;
+}
+section.docs table tr:last-child td {
+	border: none;
+}
+
+
+section.docs .nav-buttons {
+	margin-top: 40px;
+	padding-top: 40px;
+	border-top: 1px solid #222;
+}
+section.docs .nav-buttons a {
+	display: block;
+	color: #fff;
+	position: relative;
+	line-height: 1.6;
+	transition: all 0.2s ease;
+}
+section.docs .nav-buttons a small {
+	display: block;
+	transition: all 0.2s ease;
+	color: #777;
+}
+section.docs .nav-buttons a.prev {
+	float: left;
+	max-width: 40%;
+	padding-left: 30px;
+}
+section.docs .nav-buttons a.prev:before {
+	content: "";
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	left: 3px;
+	top: 25px;
+	background-image: url('/previous-js/img/left.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	transition: all 0.2s ease;
+	opacity: 0.5;
+}
+section.docs .nav-buttons a.next {
+	float: right;
+	max-width: 40%;
+	padding-right: 30px;
+}
+section.docs .nav-buttons a.next:after {
+	content: "";
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	right: 3px;
+	top: 25px;
+	background-image: url('/previous-js/img/right.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	transition: all 0.2s ease;
+	opacity: 0.5;
+}
+section.docs .nav-buttons a:hover small {
+	color: #fff;
+}
+section.docs .nav-buttons a.prev:hover:before {
+	opacity: 1;
+}
+section.docs .nav-buttons a.next:hover:after {
+	opacity: 1;
+}
+

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Docs: Rendering | Previous.js</title>
+	<link rel="icon" type="image/x-icon" href="/previous-js/favicon.ico">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="/previous-js/css/style.css">
+<link rel="stylesheet" type="text/css" href="/previous-js/vendor/highlight/styles/atom-one-dark.min.css">
+<link rel="stylesheet" type="text/css" href="/previous-js/css/docs.css">
+
+	<script type="text/javascript" src="/previous-js/previous.js"></script>
+<script type="text/javascript" src="/previous-js/js/app.js"></script>
+<script type="text/javascript" src="/previous-js/vendor/highlight/highlight.min.js"></script>
+<script type="text/javascript" src="/previous-js/js/docs.js"></script>
+
+</head>
+<body>
+	<header>
+	<div class="container flex flex-left">
+		<div class="logo">
+			<a href="/previous-js/"><img src="/previous-js/img/logo-inverted.png"></a>
+		</div>
+		<nav class="menu flex">
+			<a href="/previous-js/showcase">Showcase</a>
+			<a href="/previous-js/docs/intro">Docs</a>
+			<a href="https://www.w3schools.com/jquery/default.asp" target="_blank">Learn</a>
+			<a href="https://blog.jquery.com/" target="_blank">Blog</a>
+			<a href="https://tympanus.net/codrops/category/blueprints/" target="_blank">Blueprints</a>
+		</nav>
+	</div>
+</header>
+<main>
+	<div class="container">
+		
+<section class="docs">
+	<nav class="articles menu">
+		<h1>Docs</h1>
+		<a href="/previous-js/docs/intro">Getting Started</a>
+<a href="/previous-js/docs/installation">Installation</a>
+<a href="/previous-js/docs/structure">Project Structure</a>
+<a href="/previous-js/docs/routing">Routing</a>
+<a href="/previous-js/docs/rendering" class="active">Rendering</a>
+<a href="/previous-js/docs/props">Props</a>
+<a href="/previous-js/docs/require">Require</a>
+<a href="/previous-js/docs/components">Components</a>
+<a href="/previous-js/docs/apis">APIs</a>
+<a href="/previous-js/docs/data">Data</a>
+<a href="/previous-js/docs/errors">Error Handling</a>
+<a href="/previous-js/docs/publishing">Publishing</a>
+<a href="/previous-js/docs/reference">Reference</a>
+	</nav>
+	<article class="content">
+		<div class="anchor" id="rendering"></div><h1 data-id="rendering">Rendering</h1><p>Any route in your app represents a full HTML web page that will be rendered using the special files <code>&#112;&#97;&#103;&#101;&#46;&#106;&#115;</code> and <code>&#108;&#97;&#121;&#111;&#117;&#116;&#46;&#106;&#115;</code>.</p><div class="anchor" id="pages"></div><h2 data-id="pages">Pages</h2><p>A page is UI that is <strong>unique</strong> to a route. You can define pages by exporting a component from a <code>&#112;&#97;&#103;&#101;&#46;&#106;&#115;</code> file. Use nested folders to <a href="/previous-js/docs/routing#creating-routes" >define a route</a> and a <code>&#112;&#97;&#103;&#101;&#46;&#106;&#115;</code> file to make the route publicly accessible.</p><p>Create your first page by adding a <code>&#112;&#97;&#103;&#101;&#46;&#106;&#115;</code> file inside the <code>&#97;&#112;&#112;</code> directory:</p><p><img src="/previous-js/img/docs/rendering/diagram_01.png" alt=""/></p><div class="codeblock" language="javascript" description="app/page.js"><pre class="codeblock-body">&#47;&#47;&#32;&#96;&#97;&#112;&#112;&#47;&#112;&#97;&#103;&#101;&#46;&#106;&#115;&#96;&#32;&#105;&#115;&#32;&#116;&#104;&#101;&#32;&#85;&#73;&#32;&#102;&#111;&#114;&#32;&#116;&#104;&#101;&#32;&#96;&#47;&#96;&#32;&#85;&#82;&#76;&#13;
+&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#58;&#32;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#96;&#60;&#104;&#49;&#62;&#72;&#101;&#108;&#108;&#111;&#44;&#32;&#72;&#111;&#109;&#101;&#32;&#112;&#97;&#103;&#101;&#33;&#60;&#47;&#104;&#49;&#62;&#96;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><div class="codeblock" language="javascript" description="app/dashboard/page.js"><pre class="codeblock-body">&#47;&#47;&#32;&#96;&#97;&#112;&#112;&#47;&#100;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#47;&#112;&#97;&#103;&#101;&#46;&#106;&#115;&#96;&#32;&#105;&#115;&#32;&#116;&#104;&#101;&#32;&#85;&#73;&#32;&#102;&#111;&#114;&#32;&#116;&#104;&#101;&#32;&#96;&#47;&#100;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#96;&#32;&#85;&#82;&#76;&#13;
+&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#58;&#32;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#96;&#60;&#104;&#49;&#62;&#72;&#101;&#108;&#108;&#111;&#44;&#32;&#68;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#32;&#80;&#97;&#103;&#101;&#33;&#60;&#47;&#104;&#49;&#62;&#96;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><blockquote><p><strong>Good to know</strong></p><p></p><ul><li>A page is always the <a href="/previous-js/docs/routing#terminology" >leaf</a> of the <a href="/previous-js/docs/routing#terminology" >route subtree</a>.</li><li>A page is always a <strong>Server Component</strong>.</li><li><code>&#46;&#106;&#115;</code> and <code>&#46;&#104;&#116;&#109;&#108;</code> file extensions can be used for creating Pages.</li><li>A page file is required to make a route segment publicly accessible.</li><li>Pages can fetch data. View the <a href="/previous-js/docs/data" >Data Fetching</a> section for more information.</li><li>Never use <code>&#60;&#104;&#116;&#109;&#108;&#62;</code>, <code>&#60;&#104;&#101;&#97;&#100;&#62;</code> or <code>&#60;&#98;&#111;&#100;&#121;&#62;</code> tags. Previous.js manage these tags for you.</li></ul></blockquote><p>You can also create pages with pure HTML like this:</p><div class="codeblock" language="html" description="app/page.html"><pre class="codeblock-body">&#60;&#104;&#49;&#62;&#72;&#101;&#108;&#108;&#111;&#44;&#32;&#72;&#111;&#109;&#101;&#32;&#112;&#97;&#103;&#101;&#33;&#60;&#47;&#104;&#49;&#62;&#13;
+</pre></div><div class="codeblock" language="html" description="app/dashboard/page.html"><pre class="codeblock-body">&#60;&#104;&#49;&#62;&#72;&#101;&#108;&#108;&#111;&#44;&#32;&#68;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#32;&#80;&#97;&#103;&#101;&#33;&#60;&#47;&#104;&#49;&#62;&#13;
+</pre></div><p>By using <code>&#36;&#123;&#112;&#114;&#111;&#112;&#115;&#46;&#42;&#125;</code> syntax you can render page properties into the HTML content.</p><blockquote><p><strong>Important!</strong></p><p>When having <code>&#112;&#97;&#103;&#101;&#46;&#106;&#115;</code> and <code>&#112;&#97;&#103;&#101;&#46;&#104;&#116;&#109;&#108;</code> in the same directory, only the HTML file will be used to render the content and the magic method <code>&#99;&#111;&#110;&#116;&#101;&#110;&#116;</code> will be ignored.</p></blockquote><div class="anchor" id="layouts"></div><h2 data-id="layouts">Layouts</h2><p>A layout is UI that is <strong>shared</strong> between multiple pages. Layouts can also be <a href="#nesting" >nested</a>.</p><p>You can define a layout by creating <code>&#108;&#97;&#121;&#111;&#117;&#116;&#46;&#106;&#115;</code> file. The component should accept a <code>&#99;&#111;&#110;&#116;&#101;&#110;&#116;</code> prop that will be populated with another layout (if it exists) or a page during rendering.</p><p><img src="/previous-js/img/docs/rendering/diagram_02.png" alt=""/></p><div class="codeblock" language="javascript" description="app/layout.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#58;&#32;&#40;&#123;&#32;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#32;&#125;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#96;&#60;&#109;&#97;&#105;&#110;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#110;&#97;&#118;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#109;&#97;&#105;&#110;&#45;&#109;&#101;&#110;&#117;&#34;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#115;&#112;&#97;&#110;&#62;&#76;&#111;&#103;&#111;&#60;&#47;&#115;&#112;&#97;&#110;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#117;&#108;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#108;&#105;&#62;&#60;&#97;&#32;&#104;&#114;&#101;&#102;&#61;&#34;&#47;&#34;&#62;&#72;&#111;&#109;&#101;&#60;&#47;&#97;&#62;&#60;&#47;&#108;&#105;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#108;&#105;&#62;&#60;&#97;&#32;&#104;&#114;&#101;&#102;&#61;&#34;&#47;&#100;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#34;&#62;&#68;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#60;&#47;&#97;&#62;&#60;&#47;&#108;&#105;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#47;&#117;&#108;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#47;&#110;&#97;&#118;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#62;&#36;&#123;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#125;&#60;&#47;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#62;&#13;
+&#32;&#32;&#32;&#32;&#60;&#47;&#109;&#97;&#105;&#110;&#62;&#96;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><blockquote><p><strong>Good to know</strong></p><p></p><ul><li>The top-most layout is called the <strong>Root Layout</strong>. This <strong>required</strong> layout is shared across all pages in an application.</li><li>Any route segment can optionally define its own <a href="#nesting" >Layout</a>. These layouts will be shared across all pages in that segment.</li><li>Layouts in a route are <strong>nested</strong> by default. Each parent layout wraps child layouts below it using the <code>&#99;&#111;&#110;&#116;&#101;&#110;&#116;</code> prop.</li><li>Layouts are always <strong>Server Components</strong>.</li><li>Layouts can fetch data. View the <a href="/previous-js/docs/data" >Data Fetching</a> section for more information.</li><li>You can pass data from page to its parent layouts.</li><li><code>&#46;&#106;&#115;</code> and <code>&#46;&#104;&#116;&#109;&#108;</code> file extensions can be used for Layouts.</li><li>A <code>&#108;&#97;&#121;&#111;&#117;&#116;&#46;&#106;&#115;</code> and <code>&#112;&#97;&#103;&#101;&#46;&#106;&#115;</code> file can be defined in the same folder. The layout will wrap the page.</li><li>Never use <code>&#60;&#104;&#116;&#109;&#108;&#62;</code>, <code>&#60;&#104;&#101;&#97;&#100;&#62;</code> or <code>&#60;&#98;&#111;&#100;&#121;&#62;</code> tags. Previous.js manage these tags for you.</li></ul></blockquote><p>Layouts can also be created with pure HTML like this:</p><div class="codeblock" language="html" description="app/layout.html"><pre class="codeblock-body">&#60;&#109;&#97;&#105;&#110;&#62;&#13;
+&#32;&#32;&#60;&#110;&#97;&#118;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#109;&#97;&#105;&#110;&#45;&#109;&#101;&#110;&#117;&#34;&#62;&#13;
+&#32;&#32;&#32;&#32;&#60;&#115;&#112;&#97;&#110;&#62;&#76;&#111;&#103;&#111;&#60;&#47;&#115;&#112;&#97;&#110;&#62;&#13;
+&#32;&#32;&#32;&#32;&#60;&#117;&#108;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#108;&#105;&#62;&#60;&#97;&#32;&#104;&#114;&#101;&#102;&#61;&#34;&#47;&#34;&#62;&#72;&#111;&#109;&#101;&#60;&#47;&#97;&#62;&#60;&#47;&#108;&#105;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#108;&#105;&#62;&#60;&#97;&#32;&#104;&#114;&#101;&#102;&#61;&#34;&#47;&#100;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#34;&#62;&#68;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#60;&#47;&#97;&#62;&#60;&#47;&#108;&#105;&#62;&#13;
+&#32;&#32;&#32;&#32;&#60;&#47;&#117;&#108;&#62;&#13;
+&#32;&#32;&#60;&#47;&#110;&#97;&#118;&#62;&#13;
+&#32;&#32;&#36;&#123;&#112;&#114;&#111;&#112;&#115;&#46;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#125;&#13;
+&#60;&#47;&#109;&#97;&#105;&#110;&#62;&#13;
+</pre></div><p>In this example the <code>&#99;&#111;&#110;&#116;&#101;&#110;&#116;</code> is rendered with <code>&#36;&#123;&#112;&#114;&#111;&#112;&#115;&#46;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#125;</code>. All HTML files will have access to page props using this syntax. This render method use the <a href="/previous-js/docs/require#function-read" ><code>&#114;&#101;&#97;&#100;</code></a> function.</p><blockquote><p><strong>Important!</strong></p><p>When having <code>&#108;&#97;&#121;&#111;&#117;&#116;&#46;&#106;&#115;</code> and <code>&#108;&#97;&#121;&#111;&#117;&#116;&#46;&#104;&#116;&#109;&#108;</code> in the same directory, only the HTML file will be used to render the content and the magic method <code>&#99;&#111;&#110;&#116;&#101;&#110;&#116;</code> will be ignored.</p></blockquote><div class="anchor" id="nesting"></div><h2 data-id="nesting">Nesting</h2><p>Layouts in the file hierarchy are <strong>nested</strong>, which means they wrap child layouts via their <code>&#99;&#111;&#110;&#116;&#101;&#110;&#116;</code> prop.</p><p><img src="/previous-js/img/docs/rendering/diagram_03.png" alt=""/></p><div class="codeblock" language="javascript" description="app/dashboard/layout.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#58;&#32;&#40;&#123;&#32;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#32;&#125;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#96;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#110;&#97;&#118;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#108;&#97;&#116;&#101;&#114;&#97;&#108;&#45;&#109;&#101;&#110;&#117;&#34;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#117;&#108;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#108;&#105;&#62;&#60;&#97;&#32;&#104;&#114;&#101;&#102;&#61;&#34;&#47;&#100;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#47;&#115;&#101;&#99;&#116;&#105;&#111;&#110;&#45;&#49;&#34;&#62;&#83;&#101;&#99;&#116;&#105;&#111;&#110;&#32;&#49;&#60;&#47;&#97;&#62;&#60;&#47;&#108;&#105;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#108;&#105;&#62;&#60;&#97;&#32;&#104;&#114;&#101;&#102;&#61;&#34;&#47;&#100;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#47;&#115;&#101;&#99;&#116;&#105;&#111;&#110;&#45;&#50;&#34;&#62;&#83;&#101;&#99;&#116;&#105;&#111;&#110;&#32;&#50;&#60;&#47;&#97;&#62;&#60;&#47;&#108;&#105;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#108;&#105;&#62;&#60;&#97;&#32;&#104;&#114;&#101;&#102;&#61;&#34;&#47;&#100;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#47;&#115;&#101;&#99;&#116;&#105;&#111;&#110;&#45;&#51;&#34;&#62;&#83;&#101;&#99;&#116;&#105;&#111;&#110;&#32;&#51;&#60;&#47;&#97;&#62;&#60;&#47;&#108;&#105;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#47;&#117;&#108;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#47;&#110;&#97;&#118;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#115;&#101;&#99;&#116;&#105;&#111;&#110;&#62;&#36;&#123;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#125;&#60;&#47;&#115;&#101;&#99;&#116;&#105;&#111;&#110;&#62;&#13;
+&#32;&#32;&#32;&#32;&#96;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><p>If you were to combine the two layouts above, the root layout (<code>&#97;&#112;&#112;&#47;&#108;&#97;&#121;&#111;&#117;&#116;&#46;&#106;&#115;</code>) would wrap the dashboard layout (<code>&#97;&#112;&#112;&#47;&#100;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#47;&#108;&#97;&#121;&#111;&#117;&#116;&#46;&#106;&#115;</code>), which would wrap route segments inside <code>&#97;&#112;&#112;&#47;&#100;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#47;&#42;</code>.</p><p>The two layouts would be nested as such:</p><p><img src="/previous-js/img/docs/rendering/diagram_04.png" alt=""/></p><p>The resulting page will looks like:</p><div class="codeblock" language="html" description="app/dashboard/"><pre class="codeblock-body">&#60;&#104;&#116;&#109;&#108;&#62;&#13;
+&#46;&#46;&#46;&#13;
+&#60;&#98;&#111;&#100;&#121;&#62;&#13;
+&#32;&#32;&#60;&#109;&#97;&#105;&#110;&#62;&#13;
+&#32;&#32;&#32;&#32;&#60;&#110;&#97;&#118;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#109;&#97;&#105;&#110;&#45;&#109;&#101;&#110;&#117;&#34;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#115;&#112;&#97;&#110;&#62;&#76;&#111;&#103;&#111;&#60;&#47;&#115;&#112;&#97;&#110;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#117;&#108;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#108;&#105;&#62;&#60;&#97;&#32;&#104;&#114;&#101;&#102;&#61;&#34;&#47;&#34;&#62;&#72;&#111;&#109;&#101;&#60;&#47;&#97;&#62;&#60;&#47;&#108;&#105;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#108;&#105;&#62;&#60;&#97;&#32;&#104;&#114;&#101;&#102;&#61;&#34;&#47;&#100;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#34;&#62;&#68;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#60;&#47;&#97;&#62;&#60;&#47;&#108;&#105;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#47;&#117;&#108;&#62;&#13;
+&#32;&#32;&#32;&#32;&#60;&#47;&#110;&#97;&#118;&#62;&#13;
+&#32;&#32;&#32;&#32;&#60;&#110;&#97;&#118;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#108;&#97;&#116;&#101;&#114;&#97;&#108;&#45;&#109;&#101;&#110;&#117;&#34;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#117;&#108;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#108;&#105;&#62;&#60;&#97;&#32;&#104;&#114;&#101;&#102;&#61;&#34;&#47;&#100;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#47;&#115;&#101;&#99;&#116;&#105;&#111;&#110;&#45;&#49;&#34;&#62;&#83;&#101;&#99;&#116;&#105;&#111;&#110;&#32;&#49;&#60;&#47;&#97;&#62;&#60;&#47;&#108;&#105;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#108;&#105;&#62;&#60;&#97;&#32;&#104;&#114;&#101;&#102;&#61;&#34;&#47;&#100;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#47;&#115;&#101;&#99;&#116;&#105;&#111;&#110;&#45;&#50;&#34;&#62;&#83;&#101;&#99;&#116;&#105;&#111;&#110;&#32;&#50;&#60;&#47;&#97;&#62;&#60;&#47;&#108;&#105;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#108;&#105;&#62;&#60;&#97;&#32;&#104;&#114;&#101;&#102;&#61;&#34;&#47;&#100;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#47;&#115;&#101;&#99;&#116;&#105;&#111;&#110;&#45;&#51;&#34;&#62;&#83;&#101;&#99;&#116;&#105;&#111;&#110;&#32;&#51;&#60;&#47;&#97;&#62;&#60;&#47;&#108;&#105;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#47;&#117;&#108;&#62;&#13;
+&#32;&#32;&#32;&#32;&#60;&#47;&#110;&#97;&#118;&#62;&#13;
+&#32;&#32;&#32;&#32;&#60;&#115;&#101;&#99;&#116;&#105;&#111;&#110;&#62;&#60;&#104;&#49;&#62;&#72;&#101;&#108;&#108;&#111;&#44;&#32;&#68;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#32;&#80;&#97;&#103;&#101;&#33;&#60;&#47;&#104;&#49;&#62;&#60;&#47;&#115;&#101;&#99;&#116;&#105;&#111;&#110;&#62;&#13;
+&#32;&#32;&#60;&#47;&#109;&#97;&#105;&#110;&#62;&#13;
+&#32;&#32;&#60;&#47;&#98;&#111;&#100;&#121;&#62;&#13;
+&#60;&#47;&#104;&#116;&#109;&#108;&#62;&#13;
+</pre></div><p><img src="/previous-js/img/docs/rendering/diagram_05.png" alt=""/></p><p>All the contents will always render from page to each parents layouts. This order is important when using props, so you can set information in page segment and use it later in a parent layout.</p><blockquote><p><strong>Remember!</strong></p><p>Never use <code>&#60;&#104;&#116;&#109;&#108;&#62;</code>, <code>&#60;&#104;&#101;&#97;&#100;&#62;</code> or <code>&#60;&#98;&#111;&#100;&#121;&#62;</code> tags. Previous.js manage these tags for you.</p></blockquote>
+		<div class="nav-buttons"></div>
+	</article>
+	<nav class="index menu">
+		<h5 class="index-header">On this page</h5>
+		<a href="#pages" class="level-2">Pages</a>
+<a href="#layouts" class="level-2">Layouts</a>
+<a href="#nesting" class="level-2">Nesting</a>
+	</nav>
+</section>
+<script type="text/javascript">
+$(function() {
+		docs.highlightCode();
+		docs.setNavigationButtons();
+		setTimeout(function() {
+			docs.linkDocumentHeaders();
+		}, 100);
+	});
+</script>
+	</div>
+</main>
+<footer>
+	<div class="container">
+		<div class="content">
+			<div class="grid-columns-6">
+				<div><p><img src="/previous-js/img/logo-inverted.png"></p></div>
+				<div>
+					<p><b>Resources</b></p>
+					<p><a href="/previous-js/showcase">Showcase</a></p>
+					<p><a href="/previous-js/docs/intro">Docs</a></p>
+					<p><a href="https://www.w3schools.com/jquery/default.asp" target="_blank">Learn</a></p>
+					<p><a href="https://blog.jquery.com/" target="_blank">Blog</a></p>
+					<p><a href="https://tympanus.net/codrops/category/blueprints/" target="_blank">Blueprints</a></p>
+				</div>
+				<div>
+					<p><b>More</b></p>
+					<p><a href="https://github.com/necrotxilok/previous.js" target="_blank">Source</a></p>
+					<p><a href="https://github.com/necrotxilok/previous.js/releases" target="_blank">Releases</a></p>
+					<p><a href="https://github.com/necrotxilok/previous.js/blob/main/LICENSE" target="_blank">License</a></p>
+					<p><a href="https://www.paypal.com/donate/?hosted_button_id=BFGBHCXK2A2GL" target="_blank">Donate</a></p>
+				</div>
+				<div>
+					<p><b>About</b></p>
+					<p><a href="https://necrotxilok.github.io/" target="_blank">Projects</a></p>
+					<p><a href="https://github.com/necrotxilok" target="_blank">GitHub</a></p>
+					<p><a href="https://twitter.com/necro_txilok/" target="_blank">Twitter</a></p>
+					<p><a href="necro_txilok(at)hotmail(dot)com" class="js-cm">Contact</a></p>
+					<script type="text/javascript">(function(){var r=document.querySelector('.js-cm').getAttribute('href');document.querySelector('.js-cm').setAttribute('href','mailto:'+r.replace('(at)','@').replace('(dot)','.'));})();</script>
+				</div>
+				<div>
+					<p><b>Legal</b></p>
+					<p><a href="/previous-js/legal#disclaimer">Disclaimer</a></p>
+					<p><a href="/previous-js/legal#privacy">Privacy</a></p>
+					<p><a href="/previous-js/legal#cookies">Cookies</a></p>
+				</div>
+				<div>
+					<p><b>Newsletter</b></p>
+					<p>Stay updated on new releases and features, guides, and case studies.</p>
+					<form class="subscribe-form">
+						<input type="email" class="input" placeholder="your@email.com">
+						<input type="submit" class="submit" value="Subscribe">
+					</form>
+					<p><small class="subscribe-form-result"></small></p>
+				</div>
+			</div>
+		</div>
+		<div class="author">@ 2023 - Developed by <a href="https://necrotxilok.github.io/" target="_blank">necro_txilok <span class="external"></span></a></div>
+	</div>
+</footer>
+<script type="text/javascript">
+$(function() {
+		$('.subscribe-form').on('submit', function(e) {
+			e.preventDefault();
+			$('.subscribe-form-result').text('Please, do not send us your email. It goes against our privacy policy.')
+		});
+	});
+</script>
+</body>
+</html>

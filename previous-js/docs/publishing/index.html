@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Docs: Publishing | Previous.js</title>
+	<link rel="icon" type="image/x-icon" href="/previous-js/favicon.ico">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="/previous-js/css/style.css">
+<link rel="stylesheet" type="text/css" href="/previous-js/vendor/highlight/styles/atom-one-dark.min.css">
+<link rel="stylesheet" type="text/css" href="/previous-js/css/docs.css">
+
+	<script type="text/javascript" src="/previous-js/previous.js"></script>
+<script type="text/javascript" src="/previous-js/js/app.js"></script>
+<script type="text/javascript" src="/previous-js/vendor/highlight/highlight.min.js"></script>
+<script type="text/javascript" src="/previous-js/js/docs.js"></script>
+
+</head>
+<body>
+	<header>
+	<div class="container flex flex-left">
+		<div class="logo">
+			<a href="/previous-js/"><img src="/previous-js/img/logo-inverted.png"></a>
+		</div>
+		<nav class="menu flex">
+			<a href="/previous-js/showcase">Showcase</a>
+			<a href="/previous-js/docs/intro">Docs</a>
+			<a href="https://www.w3schools.com/jquery/default.asp" target="_blank">Learn</a>
+			<a href="https://blog.jquery.com/" target="_blank">Blog</a>
+			<a href="https://tympanus.net/codrops/category/blueprints/" target="_blank">Blueprints</a>
+		</nav>
+	</div>
+</header>
+<main>
+	<div class="container">
+		
+<section class="docs">
+	<nav class="articles menu">
+		<h1>Docs</h1>
+		<a href="/previous-js/docs/intro">Getting Started</a>
+<a href="/previous-js/docs/installation">Installation</a>
+<a href="/previous-js/docs/structure">Project Structure</a>
+<a href="/previous-js/docs/routing">Routing</a>
+<a href="/previous-js/docs/rendering">Rendering</a>
+<a href="/previous-js/docs/props">Props</a>
+<a href="/previous-js/docs/require">Require</a>
+<a href="/previous-js/docs/components">Components</a>
+<a href="/previous-js/docs/apis">APIs</a>
+<a href="/previous-js/docs/data">Data</a>
+<a href="/previous-js/docs/errors">Error Handling</a>
+<a href="/previous-js/docs/publishing" class="active">Publishing</a>
+<a href="/previous-js/docs/reference">Reference</a>
+	</nav>
+	<article class="content">
+		<div class="anchor" id="publishing"></div><h1 data-id="publishing">Publishing</h1>
+		<div class="nav-buttons"></div>
+	</article>
+	<nav class="index menu">
+		<h5 class="index-header">On this page</h5>
+		
+	</nav>
+</section>
+<script type="text/javascript">
+$(function() {
+		docs.highlightCode();
+		docs.setNavigationButtons();
+		setTimeout(function() {
+			docs.linkDocumentHeaders();
+		}, 100);
+	});
+</script>
+	</div>
+</main>
+<footer>
+	<div class="container">
+		<div class="content">
+			<div class="grid-columns-6">
+				<div><p><img src="/previous-js/img/logo-inverted.png"></p></div>
+				<div>
+					<p><b>Resources</b></p>
+					<p><a href="/previous-js/showcase">Showcase</a></p>
+					<p><a href="/previous-js/docs/intro">Docs</a></p>
+					<p><a href="https://www.w3schools.com/jquery/default.asp" target="_blank">Learn</a></p>
+					<p><a href="https://blog.jquery.com/" target="_blank">Blog</a></p>
+					<p><a href="https://tympanus.net/codrops/category/blueprints/" target="_blank">Blueprints</a></p>
+				</div>
+				<div>
+					<p><b>More</b></p>
+					<p><a href="https://github.com/necrotxilok/previous.js" target="_blank">Source</a></p>
+					<p><a href="https://github.com/necrotxilok/previous.js/releases" target="_blank">Releases</a></p>
+					<p><a href="https://github.com/necrotxilok/previous.js/blob/main/LICENSE" target="_blank">License</a></p>
+					<p><a href="https://www.paypal.com/donate/?hosted_button_id=BFGBHCXK2A2GL" target="_blank">Donate</a></p>
+				</div>
+				<div>
+					<p><b>About</b></p>
+					<p><a href="https://necrotxilok.github.io/" target="_blank">Projects</a></p>
+					<p><a href="https://github.com/necrotxilok" target="_blank">GitHub</a></p>
+					<p><a href="https://twitter.com/necro_txilok/" target="_blank">Twitter</a></p>
+					<p><a href="necro_txilok(at)hotmail(dot)com" class="js-cm">Contact</a></p>
+					<script type="text/javascript">(function(){var r=document.querySelector('.js-cm').getAttribute('href');document.querySelector('.js-cm').setAttribute('href','mailto:'+r.replace('(at)','@').replace('(dot)','.'));})();</script>
+				</div>
+				<div>
+					<p><b>Legal</b></p>
+					<p><a href="/previous-js/legal#disclaimer">Disclaimer</a></p>
+					<p><a href="/previous-js/legal#privacy">Privacy</a></p>
+					<p><a href="/previous-js/legal#cookies">Cookies</a></p>
+				</div>
+				<div>
+					<p><b>Newsletter</b></p>
+					<p>Stay updated on new releases and features, guides, and case studies.</p>
+					<form class="subscribe-form">
+						<input type="email" class="input" placeholder="your@email.com">
+						<input type="submit" class="submit" value="Subscribe">
+					</form>
+					<p><small class="subscribe-form-result"></small></p>
+				</div>
+			</div>
+		</div>
+		<div class="author">@ 2023 - Developed by <a href="https://necrotxilok.github.io/" target="_blank">necro_txilok <span class="external"></span></a></div>
+	</div>
+</footer>
+<script type="text/javascript">
+$(function() {
+		$('.subscribe-form').on('submit', function(e) {
+			e.preventDefault();
+			$('.subscribe-form-result').text('Please, do not send us your email. It goes against our privacy policy.')
+		});
+	});
+</script>
+</body>
+</html>

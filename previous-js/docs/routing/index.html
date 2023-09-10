@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Docs: Routing | Previous.js</title>
+	<link rel="icon" type="image/x-icon" href="/previous-js/favicon.ico">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="/previous-js/css/style.css">
+<link rel="stylesheet" type="text/css" href="/previous-js/vendor/highlight/styles/atom-one-dark.min.css">
+<link rel="stylesheet" type="text/css" href="/previous-js/css/docs.css">
+
+	<script type="text/javascript" src="/previous-js/previous.js"></script>
+<script type="text/javascript" src="/previous-js/js/app.js"></script>
+<script type="text/javascript" src="/previous-js/vendor/highlight/highlight.min.js"></script>
+<script type="text/javascript" src="/previous-js/js/docs.js"></script>
+
+</head>
+<body>
+	<header>
+	<div class="container flex flex-left">
+		<div class="logo">
+			<a href="/previous-js/"><img src="/previous-js/img/logo-inverted.png"></a>
+		</div>
+		<nav class="menu flex">
+			<a href="/previous-js/showcase">Showcase</a>
+			<a href="/previous-js/docs/intro">Docs</a>
+			<a href="https://www.w3schools.com/jquery/default.asp" target="_blank">Learn</a>
+			<a href="https://blog.jquery.com/" target="_blank">Blog</a>
+			<a href="https://tympanus.net/codrops/category/blueprints/" target="_blank">Blueprints</a>
+		</nav>
+	</div>
+</header>
+<main>
+	<div class="container">
+		
+<section class="docs">
+	<nav class="articles menu">
+		<h1>Docs</h1>
+		<a href="/previous-js/docs/intro">Getting Started</a>
+<a href="/previous-js/docs/installation">Installation</a>
+<a href="/previous-js/docs/structure">Project Structure</a>
+<a href="/previous-js/docs/routing" class="active">Routing</a>
+<a href="/previous-js/docs/rendering">Rendering</a>
+<a href="/previous-js/docs/props">Props</a>
+<a href="/previous-js/docs/require">Require</a>
+<a href="/previous-js/docs/components">Components</a>
+<a href="/previous-js/docs/apis">APIs</a>
+<a href="/previous-js/docs/data">Data</a>
+<a href="/previous-js/docs/errors">Error Handling</a>
+<a href="/previous-js/docs/publishing">Publishing</a>
+<a href="/previous-js/docs/reference">Reference</a>
+	</nav>
+	<article class="content">
+		<div class="anchor" id="routing"></div><h1 data-id="routing">Routing</h1><p>The skeleton of every application is routing. This page will introduce you to the <strong>fundamental concepts</strong> of routing for the web and how to handle routing in Previous.js.</p><div class="anchor" id="terminology"></div><h2 data-id="terminology">Terminology</h2><p>First, you will see these terms being used throughout the documentation. Here's a quick reference:</p><p><img src="/previous-js/img/docs/routing/diagram_01.png" alt=""/></p><ul><li><strong>Tree:</strong> A convention for visualizing a hierarchical structure. For example, a component tree with parent and children components, a folder structure, etc.</li><li><strong>Subtree:</strong> Part of a tree, starting at a new root (first) and ending at the leaves (last).</li><li><strong>Root</strong>: The first node in a tree or subtree, such as a root layout.</li><li><strong>Leaf:</strong> Nodes in a subtree that have no children, such as the last segment in a URL path.</li></ul><p><img src="/previous-js/img/docs/routing/diagram_02.png" alt=""/></p><ul><li><strong>URL Segment:</strong> Part of the URL path delimited by slashes.</li><li><strong>URL Path:</strong> Part of the URL that comes after the domain (composed of segments).</li></ul><div class="anchor" id="folders-and-files"></div><h2 data-id="folders-and-files">Folders and Files</h2><p>Previous.js uses a file-system based router where:</p><ul><li><strong>Folders</strong> are used to define routes. A route is a single path of nested folders, following the file-system hierarchy from the <strong>root folder</strong> down to a final <strong>leaf folder</strong> that includes a <code>&#112;&#97;&#103;&#101;&#46;&#106;&#115;</code> file. See <a href="#creating-routes" >Defining Routes</a>.</li><li><strong>Files</strong> are used to create UI that is shown for a route segment. See <a href="#file-conventions" >special files</a>.</li></ul><div class="anchor" id="nested-routes"></div><h2 data-id="nested-routes">Nested Routes</h2><p>To create a nested route, you can nest folders inside each other. For example, you can add a new <code>&#47;&#100;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#47;&#115;&#101;&#116;&#116;&#105;&#110;&#103;&#115;</code> route by nesting two new folders in the <code>&#97;&#112;&#112;</code> directory.</p><p>The <code>&#47;&#100;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#47;&#115;&#101;&#116;&#116;&#105;&#110;&#103;&#115;</code> route is composed of three segments:</p><ul><li><code>&#47;</code> (Root segment)</li><li><code>&#100;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;</code> (Segment)</li><li><code>&#115;&#101;&#116;&#116;&#105;&#110;&#103;&#115;</code> (Leaf segment)</li></ul><div class="anchor" id="creating-routes"></div><h2 data-id="creating-routes">Creating Routes</h2><p>Each folder in a route represents a <strong>route segment</strong>. Each route segment is mapped to a corresponding <strong>segment</strong> in a <strong>URL path</strong>.</p><p><img src="/previous-js/img/docs/routing/diagram_03.png" alt=""/></p><p>The special file <a href="/previous-js/docs/rendering#pages" ><code>&#112;&#97;&#103;&#101;&#46;&#106;&#115;</code></a> is used to make route segments publicly accessible.</p><p><img src="/previous-js/img/docs/routing/diagram_04.png" alt=""/></p><p>In this example, the <code>&#47;&#100;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#47;&#97;&#110;&#97;&#108;&#121;&#116;&#105;&#99;&#115;</code> URL path is <strong>not</strong> publicly accessible because it does not have a corresponding <code>&#112;&#97;&#103;&#101;&#46;&#106;&#115;</code> file. This folder could be used to store components, stylesheets, images or other files.</p><blockquote><p><strong>Good to know</strong></p><p>You can use <code>&#46;&#106;&#115;</code> and <code>&#46;&#104;&#116;&#109;&#108;</code> extensions to create conents in layouts and pages.</p></blockquote><div class="anchor" id="file-conventions"></div><h2 data-id="file-conventions">File Conventions</h2><p>Previous.js provides a set of special files to create UI with specific behavior in nested routes:</p><table><thead><tr><th>                                         </th><th>                                                                </th></tr></thead><tbody><tr><td> <a href="/previous-js/docs/rendering#layouts" ><code>&#108;&#97;&#121;&#111;&#117;&#116;</code></a>     </td><td> Shared UI for a segment and its children                       </td></tr><tr><td> <a href="/previous-js/docs/rendering#pages" ><code>&#112;&#97;&#103;&#101;</code></a>         </td><td> Unique UI of a route and make routes publicly accessible       </td></tr><tr><td> <a href="/previous-js/docs/apis" ><code>&#114;&#111;&#117;&#116;&#101;</code></a>                   </td><td> Server-side API endpoint                                       </td></tr></tbody></table><blockquote><p><strong>Good to know</strong></p><p>You can use <code>&#46;&#106;&#115;</code> and <code>&#46;&#104;&#116;&#109;&#108;</code> extensions to create conents in layouts and pages.</p></blockquote><div class="anchor" id="project-organization"></div><h2 data-id="project-organization">Project organization</h2><p>In addition to special files, you have the option to put your own files (e.g. components, styles, tests, etc) inside folders in the <code>&#97;&#112;&#112;</code> directory.</p><p>This is because while folders define routes, only the contents returned by <code>&#112;&#97;&#103;&#101;&#46;&#106;&#115;</code> or <code>&#114;&#111;&#117;&#116;&#101;&#46;&#106;&#115;</code> are publicly addressable.</p><p><img src="/previous-js/img/docs/routing/diagram_05.png" alt=""/></p><div class="anchor" id="private-folders"></div><h2 data-id="private-folders">Private Folders</h2><p>Private folders can be created by prefixing a folder with an underscore: <code>&#95;&#102;&#111;&#108;&#100;&#101;&#114;&#78;&#97;&#109;&#101;</code></p><p>This indicates the folder is a private implementation detail and should not be considered by the routing system, thereby <strong>opting the folder and all its subfolders</strong> out of routing.</p><p><img src="/previous-js/img/docs/routing/diagram_06.png" alt=""/></p><p>Since files in the <code>&#97;&#112;&#112;</code> directory can be safely colocated by default, private folders are not required for colocation. However, they can be useful for:</p><ul><li>Separating UI logic from routing logic.</li><li>Consistently organizing internal files across a project and the Previous.js ecosystem.</li><li>Sorting and grouping files in code editors.</li><li>Avoiding potential naming conflicts with future Previous.js file conventions.</li></ul><blockquote><p><strong>Good to know</strong></p><p>All files in <code>&#97;&#112;&#112;&#47;</code> directory will only can be used in server side. If you want to use components in both client and server side use <code>&#99;&#111;&#109;&#112;&#111;&#110;&#101;&#110;&#116;&#115;&#47;</code> top-level folder. Learn more about <a href="/previous-js/docs/components" >using Components</a>.</p></blockquote><div class="anchor" id="linking-and-navigating"></div><h2 data-id="linking-and-navigating">Linking and Navigating</h2><p>Each link on your website can be created using the HTML tag <code>&#60;&#97;&#62;</code>. Previous.js will provide automatic prefetching and client-side navigation between routes.</p><div class="codeblock" language="javascript" description="app/page.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#58;&#32;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#96;&#60;&#97;&#32;&#104;&#114;&#101;&#102;&#61;&#34;&#47;&#100;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#34;&#62;&#68;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#60;&#47;&#97;&#62;&#96;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><blockquote><p><strong>Good to know</strong></p><p>The client-side navigation will only be available with path urls like <code>&#47;&#100;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;</code>. If you use a full domain urls like <code>&#104;&#116;&#116;&#112;&#115;&#58;&#47;&#47;&#97;&#99;&#109;&#101;&#46;&#99;&#111;&#109;&#47;&#112;&#97;&#116;&#104;</code> the link will be opened using the default browser navigation.</p></blockquote><p>The default behavior of the Previous.js App Router is to scroll to the top of a new route or to maintain the scroll position for backwards and forwards navigation.</p><p>If you'd like to scroll to a specific <code>&#105;&#100;</code> on navigation, you can append your URL with a hash link (<code>&#35;&#105;&#100;</code>) or just pass a hash link to the <code>&#104;&#114;&#101;&#102;</code> prop.</p><div class="codeblock" language="javascript" description="app/page.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#58;&#32;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#96;&#60;&#97;&#32;&#104;&#114;&#101;&#102;&#61;&#34;&#35;&#115;&#101;&#99;&#116;&#105;&#111;&#110;&#45;&#49;&#48;&#34;&#62;&#83;&#101;&#99;&#116;&#105;&#111;&#110;&#32;&#49;&#48;&#60;&#47;&#97;&#62;&#96;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><div class="anchor" id="dynamic-routes"></div><h2 data-id="dynamic-routes">Dynamic Routes</h2><p>Dynamic Routes can be used to programmatically generate route segments from dynamic data.</p><p>A Dynamic Segment can be created by wrapping a folder's name in square brackets: <code>&#91;&#102;&#111;&#108;&#100;&#101;&#114;&#78;&#97;&#109;&#101;&#93;</code>. For example, <code>&#91;&#105;&#100;&#93;</code> or <code>&#91;&#115;&#108;&#117;&#103;&#93;</code>.</p><p>Dynamic Segments are passed as the <code>&#112;&#97;&#114;&#97;&#109;&#115;</code> prop to <a href="/previous-js/docs/rendering#layout" ><code>&#108;&#97;&#121;&#111;&#117;&#116;</code></a>, <a href="/previous-js/docs/rendering#page" ><code>&#112;&#97;&#103;&#101;</code></a>, <a href="/previous-js/docs/apis" ><code>&#114;&#111;&#117;&#116;&#101;</code></a>.</p><p>For example, a blog could include the following route <code>&#97;&#112;&#112;&#47;&#98;&#108;&#111;&#103;&#47;&#91;&#115;&#108;&#117;&#103;&#93;&#47;&#112;&#97;&#103;&#101;&#46;&#106;&#115;</code> where <code>&#91;&#115;&#108;&#117;&#103;&#93;</code> is the Dynamic Segment for blog posts.</p><div class="codeblock" language="javascript" description="app/blog/[slug]/page.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#58;&#32;&#40;&#123;&#32;&#112;&#97;&#114;&#97;&#109;&#115;&#32;&#125;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#96;&#60;&#100;&#105;&#118;&#62;&#77;&#121;&#32;&#80;&#111;&#115;&#116;&#58;&#32;&#36;&#123;&#112;&#97;&#114;&#97;&#109;&#115;&#46;&#115;&#108;&#117;&#103;&#125;&#60;&#47;&#100;&#105;&#118;&#62;&#96;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><table><thead><tr><th> Route                     </th><th> Example URL </th><th> <code>&#112;&#97;&#114;&#97;&#109;&#115;</code>        </th></tr></thead><tbody><tr><td> <code>&#97;&#112;&#112;&#47;&#98;&#108;&#111;&#103;&#47;&#91;&#115;&#108;&#117;&#103;&#93;&#47;&#112;&#97;&#103;&#101;&#46;&#106;&#115;</code> </td><td> <code>&#47;&#98;&#108;&#111;&#103;&#47;&#97;</code>   </td><td> <code>&#123;&#32;&#115;&#108;&#117;&#103;&#58;&#32;&#39;&#97;&#39;&#32;&#125;</code> </td></tr><tr><td> <code>&#97;&#112;&#112;&#47;&#98;&#108;&#111;&#103;&#47;&#91;&#115;&#108;&#117;&#103;&#93;&#47;&#112;&#97;&#103;&#101;&#46;&#106;&#115;</code> </td><td> <code>&#47;&#98;&#108;&#111;&#103;&#47;&#98;</code>   </td><td> <code>&#123;&#32;&#115;&#108;&#117;&#103;&#58;&#32;&#39;&#98;&#39;&#32;&#125;</code> </td></tr><tr><td> <code>&#97;&#112;&#112;&#47;&#98;&#108;&#111;&#103;&#47;&#91;&#115;&#108;&#117;&#103;&#93;&#47;&#112;&#97;&#103;&#101;&#46;&#106;&#115;</code> </td><td> <code>&#47;&#98;&#108;&#111;&#103;&#47;&#99;</code>   </td><td> <code>&#123;&#32;&#115;&#108;&#117;&#103;&#58;&#32;&#39;&#99;&#39;&#32;&#125;</code> </td></tr></tbody></table><p>If you need more params in your route create as many directories with square brackets as you need.</p><div class="anchor" id="request-data"></div><h2 data-id="request-data">Request Data</h2><p>Use <code>&#100;&#97;&#116;&#97;</code> prop to access to the request data from the URL query string (GET) or the form body (POST).</p><p>For example, this route shows the value of test set as GET parameter:</p><div class="codeblock" language="javascript" description="app/hello/page.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#58;&#32;&#40;&#123;&#32;&#100;&#97;&#116;&#97;&#32;&#125;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#96;&#60;&#100;&#105;&#118;&#62;&#72;&#101;&#108;&#108;&#111;&#32;&#36;&#123;&#100;&#97;&#116;&#97;&#46;&#110;&#97;&#109;&#101;&#32;&#124;&#124;&#32;&#39;&#65;&#110;&#111;&#110;&#121;&#109;&#111;&#117;&#115;&#39;&#125;&#33;&#60;&#47;&#100;&#105;&#118;&#62;&#96;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><p>So you can call this route by <code>&#47;&#104;&#101;&#108;&#108;&#111;&#63;&#110;&#97;&#109;&#101;&#61;&#68;&#97;&#118;&#105;&#100;</code> and the result will looks like:</p><div class="codeblock" language="html" description=""><pre class="codeblock-body">&#46;&#46;&#46;&#13;
+&#13;
+&#60;&#100;&#105;&#118;&#62;&#72;&#101;&#108;&#108;&#111;&#32;&#68;&#97;&#118;&#105;&#100;&#33;&#60;&#47;&#100;&#105;&#118;&#62;&#13;
+&#13;
+&#46;&#46;&#46;&#13;
+</pre></div><p>You can get the same result by sending a POST with <code>&#110;&#97;&#109;&#101;&#61;&#68;&#97;&#118;&#105;&#100;</code> in the form body.</p><blockquote><p><strong>Good to know</strong></p><p>POST parameters will override GET parameters if using the same name.</p></blockquote><div class="anchor" id="redirections"></div><h2 data-id="redirections">Redirections</h2><p>Using the router we can setup any redirection to other paths in our app.</p><p>For example, we can redirect any request from the url <code>&#47;&#98;&#108;&#111;&#103;</code> to the first slug by creating a <code>&#97;&#112;&#112;&#47;&#98;&#108;&#111;&#103;&#47;&#112;&#97;&#103;&#101;&#46;&#106;&#115;</code> with the following script:</p><div class="codeblock" language="javascript" description="app/blog/page.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#114;&#101;&#100;&#105;&#114;&#101;&#99;&#116;&#58;&#32;&#34;&#47;&#98;&#108;&#111;&#103;&#47;&#97;&#34;&#13;
+&#125;&#13;
+</pre></div><p>This allows control which page will be rendered in certain situations avoiding a <code>&#52;&#48;&#52;&#32;&#80;&#97;&#103;&#101;&#32;&#78;&#111;&#116;&#32;&#70;&#111;&#117;&#110;&#100;</code>.</p>
+		<div class="nav-buttons"></div>
+	</article>
+	<nav class="index menu">
+		<h5 class="index-header">On this page</h5>
+		<a href="#terminology" class="level-2">Terminology</a>
+<a href="#folders-and-files" class="level-2">Folders and Files</a>
+<a href="#nested-routes" class="level-2">Nested Routes</a>
+<a href="#creating-routes" class="level-2">Creating Routes</a>
+<a href="#file-conventions" class="level-2">File Conventions</a>
+<a href="#project-organization" class="level-2">Project organization</a>
+<a href="#private-folders" class="level-2">Private Folders</a>
+<a href="#linking-and-navigating" class="level-2">Linking and Navigating</a>
+<a href="#dynamic-routes" class="level-2">Dynamic Routes</a>
+<a href="#request-data" class="level-2">Request Data</a>
+<a href="#redirections" class="level-2">Redirections</a>
+	</nav>
+</section>
+<script type="text/javascript">
+$(function() {
+		docs.highlightCode();
+		docs.setNavigationButtons();
+		setTimeout(function() {
+			docs.linkDocumentHeaders();
+		}, 100);
+	});
+</script>
+	</div>
+</main>
+<footer>
+	<div class="container">
+		<div class="content">
+			<div class="grid-columns-6">
+				<div><p><img src="/previous-js/img/logo-inverted.png"></p></div>
+				<div>
+					<p><b>Resources</b></p>
+					<p><a href="/previous-js/showcase">Showcase</a></p>
+					<p><a href="/previous-js/docs/intro">Docs</a></p>
+					<p><a href="https://www.w3schools.com/jquery/default.asp" target="_blank">Learn</a></p>
+					<p><a href="https://blog.jquery.com/" target="_blank">Blog</a></p>
+					<p><a href="https://tympanus.net/codrops/category/blueprints/" target="_blank">Blueprints</a></p>
+				</div>
+				<div>
+					<p><b>More</b></p>
+					<p><a href="https://github.com/necrotxilok/previous.js" target="_blank">Source</a></p>
+					<p><a href="https://github.com/necrotxilok/previous.js/releases" target="_blank">Releases</a></p>
+					<p><a href="https://github.com/necrotxilok/previous.js/blob/main/LICENSE" target="_blank">License</a></p>
+					<p><a href="https://www.paypal.com/donate/?hosted_button_id=BFGBHCXK2A2GL" target="_blank">Donate</a></p>
+				</div>
+				<div>
+					<p><b>About</b></p>
+					<p><a href="https://necrotxilok.github.io/" target="_blank">Projects</a></p>
+					<p><a href="https://github.com/necrotxilok" target="_blank">GitHub</a></p>
+					<p><a href="https://twitter.com/necro_txilok/" target="_blank">Twitter</a></p>
+					<p><a href="necro_txilok(at)hotmail(dot)com" class="js-cm">Contact</a></p>
+					<script type="text/javascript">(function(){var r=document.querySelector('.js-cm').getAttribute('href');document.querySelector('.js-cm').setAttribute('href','mailto:'+r.replace('(at)','@').replace('(dot)','.'));})();</script>
+				</div>
+				<div>
+					<p><b>Legal</b></p>
+					<p><a href="/previous-js/legal#disclaimer">Disclaimer</a></p>
+					<p><a href="/previous-js/legal#privacy">Privacy</a></p>
+					<p><a href="/previous-js/legal#cookies">Cookies</a></p>
+				</div>
+				<div>
+					<p><b>Newsletter</b></p>
+					<p>Stay updated on new releases and features, guides, and case studies.</p>
+					<form class="subscribe-form">
+						<input type="email" class="input" placeholder="your@email.com">
+						<input type="submit" class="submit" value="Subscribe">
+					</form>
+					<p><small class="subscribe-form-result"></small></p>
+				</div>
+			</div>
+		</div>
+		<div class="author">@ 2023 - Developed by <a href="https://necrotxilok.github.io/" target="_blank">necro_txilok <span class="external"></span></a></div>
+	</div>
+</footer>
+<script type="text/javascript">
+$(function() {
+		$('.subscribe-form').on('submit', function(e) {
+			e.preventDefault();
+			$('.subscribe-form-result').text('Please, do not send us your email. It goes against our privacy policy.')
+		});
+	});
+</script>
+</body>
+</html>

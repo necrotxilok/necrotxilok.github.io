@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Docs: APIs | Previous.js</title>
+	<link rel="icon" type="image/x-icon" href="/previous-js/favicon.ico">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="/previous-js/css/style.css">
+<link rel="stylesheet" type="text/css" href="/previous-js/vendor/highlight/styles/atom-one-dark.min.css">
+<link rel="stylesheet" type="text/css" href="/previous-js/css/docs.css">
+
+	<script type="text/javascript" src="/previous-js/previous.js"></script>
+<script type="text/javascript" src="/previous-js/js/app.js"></script>
+<script type="text/javascript" src="/previous-js/vendor/highlight/highlight.min.js"></script>
+<script type="text/javascript" src="/previous-js/js/docs.js"></script>
+
+</head>
+<body>
+	<header>
+	<div class="container flex flex-left">
+		<div class="logo">
+			<a href="/previous-js/"><img src="/previous-js/img/logo-inverted.png"></a>
+		</div>
+		<nav class="menu flex">
+			<a href="/previous-js/showcase">Showcase</a>
+			<a href="/previous-js/docs/intro">Docs</a>
+			<a href="https://www.w3schools.com/jquery/default.asp" target="_blank">Learn</a>
+			<a href="https://blog.jquery.com/" target="_blank">Blog</a>
+			<a href="https://tympanus.net/codrops/category/blueprints/" target="_blank">Blueprints</a>
+		</nav>
+	</div>
+</header>
+<main>
+	<div class="container">
+		
+<section class="docs">
+	<nav class="articles menu">
+		<h1>Docs</h1>
+		<a href="/previous-js/docs/intro">Getting Started</a>
+<a href="/previous-js/docs/installation">Installation</a>
+<a href="/previous-js/docs/structure">Project Structure</a>
+<a href="/previous-js/docs/routing">Routing</a>
+<a href="/previous-js/docs/rendering">Rendering</a>
+<a href="/previous-js/docs/props">Props</a>
+<a href="/previous-js/docs/require">Require</a>
+<a href="/previous-js/docs/components">Components</a>
+<a href="/previous-js/docs/apis" class="active">APIs</a>
+<a href="/previous-js/docs/data">Data</a>
+<a href="/previous-js/docs/errors">Error Handling</a>
+<a href="/previous-js/docs/publishing">Publishing</a>
+<a href="/previous-js/docs/reference">Reference</a>
+	</nav>
+	<article class="content">
+		<div class="anchor" id="apis"></div><h1 data-id="apis">APIs</h1><p>Any modern web application which needs to perform actions like retriving information or saving information use an API.</p><p>Previous.js allows you to create any kind of API with route handlers using the <a href="/previous-js/docs/routing" >App Router</a>.</p><div class="anchor" id="route-handlers"></div><h2 data-id="route-handlers">Route Handlers</h2><p>Route handlers are defined in a <code>&#114;&#111;&#117;&#116;&#101;&#46;&#106;&#115;</code> file inside the <code>&#97;&#112;&#112;&#47;</code> directory:</p><p><img src="/previous-js/img/docs/apis/diagram_01.png" alt=""/></p><p>If <code>&#114;&#111;&#117;&#116;&#101;&#46;&#106;&#115;</code> is defined in any directory the App Router will make this route publicly accessible.</p><div class="codeblock" language="javascript" description="app/api/route.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#71;&#69;&#84;&#58;&#32;&#102;&#117;&#110;&#99;&#116;&#105;&#111;&#110;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#103;&#101;&#116;&#74;&#83;&#79;&#78;&#40;&#123;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#97;&#112;&#105;&#86;&#101;&#114;&#115;&#105;&#111;&#110;&#58;&#32;&#39;&#49;&#46;&#48;&#46;&#48;&#39;&#13;
+&#32;&#32;&#32;&#32;&#125;&#41;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><p>So in this example we can get access to the API using the URL <code>&#97;&#99;&#109;&#101;&#46;&#99;&#111;&#109;&#47;&#97;&#112;&#105;</code> and the method GET returning an object in JSON format.</p><blockquote><p><strong>Good to know</strong></p><p>Any standard HTTP methods are supported: <code>&#71;&#69;&#84;</code>, <code>&#80;&#79;&#83;&#84;</code>, <code>&#80;&#85;&#84;</code>, <code>&#80;&#65;&#84;&#67;&#72;</code>, <code>&#68;&#69;&#76;&#69;&#84;&#69;</code>, <code>&#72;&#69;&#65;&#68;</code>, <code>&#79;&#80;&#84;&#73;&#79;&#78;&#83;</code>, etc.</p></blockquote><div class="anchor" id="props"></div><h2 data-id="props">Props</h2><p>Unlike page routes, route handlers will only receive the following props:</p><table><thead><tr><th> PROP     </th><th> TYPE   </th><th> Description                </th></tr></thead><tbody><tr><td> params   </td><td> object </td><td> URL params                 </td></tr><tr><td> uri      </td><td> string </td><td> Current URI                </td></tr><tr><td> data     </td><td> object </td><td> Request Data               </td></tr></tbody></table><div class="anchor" id="request-data"></div><h2 data-id="request-data">Request Data</h2><p>Use <code>&#112;&#114;&#111;&#112;&#115;&#46;&#100;&#97;&#116;&#97;</code> to access request data from URL query string or form payload data.</p><p>For example we can create this API endpoint with POST method:</p><div class="codeblock" language="javascript" description="app/api/post/route.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#80;&#79;&#83;&#84;&#58;&#32;&#102;&#117;&#110;&#99;&#116;&#105;&#111;&#110;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#103;&#101;&#116;&#74;&#83;&#79;&#78;&#40;&#123;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#97;&#112;&#105;&#86;&#101;&#114;&#115;&#105;&#111;&#110;&#58;&#32;&#39;&#49;&#46;&#48;&#46;&#48;&#39;&#44;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#116;&#101;&#115;&#116;&#58;&#32;&#112;&#114;&#111;&#112;&#115;&#46;&#100;&#97;&#116;&#97;&#46;&#116;&#101;&#115;&#116;&#13;
+&#32;&#32;&#32;&#32;&#125;&#41;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><p>Later we can use this API with a jQuery AJAX using POST method:</p><div class="codeblock" language="javascript" description="app/api/post/route.js"><pre class="codeblock-body">&#46;&#46;&#46;&#13;
+&#13;
+&#36;&#46;&#112;&#111;&#115;&#116;&#40;&#39;&#47;&#97;&#112;&#105;&#47;&#112;&#111;&#115;&#116;&#39;&#44;&#32;&#123;&#116;&#101;&#115;&#116;&#58;&#32;&#39;&#72;&#101;&#108;&#108;&#111;&#32;&#87;&#111;&#114;&#108;&#100;&#33;&#39;&#125;&#44;&#32;&#102;&#117;&#110;&#99;&#116;&#105;&#111;&#110;&#40;&#100;&#97;&#116;&#97;&#41;&#32;&#123;&#13;
+&#9;&#99;&#111;&#110;&#115;&#111;&#108;&#101;&#46;&#108;&#111;&#103;&#40;&#100;&#97;&#116;&#97;&#41;&#59;&#13;
+&#125;&#41;&#59;&#13;
+&#13;
+&#46;&#46;&#46;&#13;
+</pre></div><blockquote><p><strong>Good to know</strong></p><p>POST parameters will override GET parameters if using the same name.</p></blockquote><div class="anchor" id="dynamic-requests"></div><h2 data-id="dynamic-requests">Dynamic Requests</h2><p>Route handlers also can use Dynamic Route Segments so we can create a <code>&#114;&#111;&#117;&#116;&#101;&#46;&#106;&#115;</code> file into <code>&#97;&#112;&#112;&#47;&#97;&#112;&#105;&#47;&#98;&#108;&#111;&#103;&#47;&#91;&#105;&#100;&#93;&#47;</code> folder to retrive dynamic data.</p><div class="codeblock" language="javascript" description="app/api/blog/[id]/route.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#71;&#69;&#84;&#58;&#32;&#102;&#117;&#110;&#99;&#116;&#105;&#111;&#110;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#103;&#101;&#116;&#74;&#83;&#79;&#78;&#40;&#123;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#105;&#100;&#58;&#32;&#112;&#114;&#111;&#112;&#115;&#46;&#112;&#97;&#114;&#97;&#109;&#115;&#46;&#105;&#100;&#13;
+&#32;&#32;&#32;&#32;&#125;&#41;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><p>Learn more about <a href="/previous-js/docs/routing#dynamic-routes" >Dynamic Routes</a>.</p><div class="anchor" id="handling-response"></div><h2 data-id="handling-response">Handling Response</h2><p>When using route handlers we can use the function <code>&#103;&#101;&#116;&#74;&#83;&#79;&#78;</code> to ease process the response in JSON format with the corresponding <code>&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#45;&#116;&#121;&#112;&#101;&#58;&#32;&#97;&#112;&#112;&#108;&#105;&#99;&#97;&#116;&#105;&#111;&#110;&#47;&#106;&#115;&#111;&#110;</code> HTTP HEADER.</p><p>This method is provided by Previous.js in server side. See more in <a href="/previous-js/docs/require" >Require</a> section.</p><p>If you want to generate a response in other formats you must return an object with the following attributes:</p><table><thead><tr><th> Property      </th><th> Type    </th><th> Description                                  </th></tr></thead><tbody><tr><td> <strong>type</strong>      </td><td> String  </td><td> The <code>&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#45;&#116;&#121;&#112;&#101;</code> for the returning data.   </td></tr><tr><td> <strong>data</strong>      </td><td> String  </td><td> The returning data in its respective format. </td></tr></tbody></table><p>For example:</p><div class="codeblock" language="javascript" description="app/others/fruits.csv/route.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#71;&#69;&#84;&#58;&#32;&#102;&#117;&#110;&#99;&#116;&#105;&#111;&#110;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#116;&#121;&#112;&#101;&#58;&#32;&#34;&#116;&#101;&#120;&#116;&#47;&#99;&#115;&#118;&#34;&#44;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#100;&#97;&#116;&#97;&#58;&#32;&#34;&#78;&#97;&#109;&#101;&#44;&#81;&#116;&#121;&#92;&#110;&#79;&#114;&#97;&#110;&#103;&#101;&#115;&#44;&#49;&#48;&#92;&#110;&#66;&#97;&#110;&#97;&#110;&#97;&#115;&#44;&#51;&#92;&#110;&#65;&#112;&#112;&#108;&#101;&#115;&#44;&#52;&#34;&#13;
+&#32;&#32;&#32;&#32;&#125;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><blockquote><p><strong>Good to know</strong></p><p>We have not tested binary formats on returning data, so we do not know if it works.</p></blockquote><div class="anchor" id="redirections"></div><h2 data-id="redirections">Redirections</h2><p>Using the router we can setup a redirection for your API.</p><p>For example, we can redirect any request from the url <code>&#47;&#97;&#112;&#105;&#47;&#97;&#114;&#116;&#105;&#99;&#108;&#101;&#115;</code> to another API like:</p><div class="codeblock" language="javascript" description="app/api/articles/route.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#71;&#69;&#84;&#58;&#32;&#102;&#117;&#110;&#99;&#116;&#105;&#111;&#110;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#114;&#101;&#100;&#105;&#114;&#101;&#99;&#116;&#58;&#32;&#34;&#47;&#97;&#112;&#105;&#47;&#110;&#101;&#119;&#115;&#34;&#13;
+&#32;&#32;&#32;&#32;&#125;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div>
+		<div class="nav-buttons"></div>
+	</article>
+	<nav class="index menu">
+		<h5 class="index-header">On this page</h5>
+		<a href="#route-handlers" class="level-2">Route Handlers</a>
+<a href="#props" class="level-2">Props</a>
+<a href="#request-data" class="level-2">Request Data</a>
+<a href="#dynamic-requests" class="level-2">Dynamic Requests</a>
+<a href="#handling-response" class="level-2">Handling Response</a>
+<a href="#redirections" class="level-2">Redirections</a>
+	</nav>
+</section>
+<script type="text/javascript">
+$(function() {
+		docs.highlightCode();
+		docs.setNavigationButtons();
+		setTimeout(function() {
+			docs.linkDocumentHeaders();
+		}, 100);
+	});
+</script>
+	</div>
+</main>
+<footer>
+	<div class="container">
+		<div class="content">
+			<div class="grid-columns-6">
+				<div><p><img src="/previous-js/img/logo-inverted.png"></p></div>
+				<div>
+					<p><b>Resources</b></p>
+					<p><a href="/previous-js/showcase">Showcase</a></p>
+					<p><a href="/previous-js/docs/intro">Docs</a></p>
+					<p><a href="https://www.w3schools.com/jquery/default.asp" target="_blank">Learn</a></p>
+					<p><a href="https://blog.jquery.com/" target="_blank">Blog</a></p>
+					<p><a href="https://tympanus.net/codrops/category/blueprints/" target="_blank">Blueprints</a></p>
+				</div>
+				<div>
+					<p><b>More</b></p>
+					<p><a href="https://github.com/necrotxilok/previous.js" target="_blank">Source</a></p>
+					<p><a href="https://github.com/necrotxilok/previous.js/releases" target="_blank">Releases</a></p>
+					<p><a href="https://github.com/necrotxilok/previous.js/blob/main/LICENSE" target="_blank">License</a></p>
+					<p><a href="https://www.paypal.com/donate/?hosted_button_id=BFGBHCXK2A2GL" target="_blank">Donate</a></p>
+				</div>
+				<div>
+					<p><b>About</b></p>
+					<p><a href="https://necrotxilok.github.io/" target="_blank">Projects</a></p>
+					<p><a href="https://github.com/necrotxilok" target="_blank">GitHub</a></p>
+					<p><a href="https://twitter.com/necro_txilok/" target="_blank">Twitter</a></p>
+					<p><a href="necro_txilok(at)hotmail(dot)com" class="js-cm">Contact</a></p>
+					<script type="text/javascript">(function(){var r=document.querySelector('.js-cm').getAttribute('href');document.querySelector('.js-cm').setAttribute('href','mailto:'+r.replace('(at)','@').replace('(dot)','.'));})();</script>
+				</div>
+				<div>
+					<p><b>Legal</b></p>
+					<p><a href="/previous-js/legal#disclaimer">Disclaimer</a></p>
+					<p><a href="/previous-js/legal#privacy">Privacy</a></p>
+					<p><a href="/previous-js/legal#cookies">Cookies</a></p>
+				</div>
+				<div>
+					<p><b>Newsletter</b></p>
+					<p>Stay updated on new releases and features, guides, and case studies.</p>
+					<form class="subscribe-form">
+						<input type="email" class="input" placeholder="your@email.com">
+						<input type="submit" class="submit" value="Subscribe">
+					</form>
+					<p><small class="subscribe-form-result"></small></p>
+				</div>
+			</div>
+		</div>
+		<div class="author">@ 2023 - Developed by <a href="https://necrotxilok.github.io/" target="_blank">necro_txilok <span class="external"></span></a></div>
+	</div>
+</footer>
+<script type="text/javascript">
+$(function() {
+		$('.subscribe-form').on('submit', function(e) {
+			e.preventDefault();
+			$('.subscribe-form-result').text('Please, do not send us your email. It goes against our privacy policy.')
+		});
+	});
+</script>
+</body>
+</html>

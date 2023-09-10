@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Docs: Props | Previous.js</title>
+	<link rel="icon" type="image/x-icon" href="/previous-js/favicon.ico">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="/previous-js/css/style.css">
+<link rel="stylesheet" type="text/css" href="/previous-js/vendor/highlight/styles/atom-one-dark.min.css">
+<link rel="stylesheet" type="text/css" href="/previous-js/css/docs.css">
+
+	<script type="text/javascript" src="/previous-js/previous.js"></script>
+<script type="text/javascript" src="/previous-js/js/app.js"></script>
+<script type="text/javascript" src="/previous-js/vendor/highlight/highlight.min.js"></script>
+<script type="text/javascript" src="/previous-js/js/docs.js"></script>
+
+</head>
+<body>
+	<header>
+	<div class="container flex flex-left">
+		<div class="logo">
+			<a href="/previous-js/"><img src="/previous-js/img/logo-inverted.png"></a>
+		</div>
+		<nav class="menu flex">
+			<a href="/previous-js/showcase">Showcase</a>
+			<a href="/previous-js/docs/intro">Docs</a>
+			<a href="https://www.w3schools.com/jquery/default.asp" target="_blank">Learn</a>
+			<a href="https://blog.jquery.com/" target="_blank">Blog</a>
+			<a href="https://tympanus.net/codrops/category/blueprints/" target="_blank">Blueprints</a>
+		</nav>
+	</div>
+</header>
+<main>
+	<div class="container">
+		
+<section class="docs">
+	<nav class="articles menu">
+		<h1>Docs</h1>
+		<a href="/previous-js/docs/intro">Getting Started</a>
+<a href="/previous-js/docs/installation">Installation</a>
+<a href="/previous-js/docs/structure">Project Structure</a>
+<a href="/previous-js/docs/routing">Routing</a>
+<a href="/previous-js/docs/rendering">Rendering</a>
+<a href="/previous-js/docs/props" class="active">Props</a>
+<a href="/previous-js/docs/require">Require</a>
+<a href="/previous-js/docs/components">Components</a>
+<a href="/previous-js/docs/apis">APIs</a>
+<a href="/previous-js/docs/data">Data</a>
+<a href="/previous-js/docs/errors">Error Handling</a>
+<a href="/previous-js/docs/publishing">Publishing</a>
+<a href="/previous-js/docs/reference">Reference</a>
+	</nav>
+	<article class="content">
+		<div class="anchor" id="props"></div><h1 data-id="props">Props</h1><p>Any content in your app has access to a basic set of information shared between pages and its respective layouts when rendering to generate the final HTML document.</p><p>This information is stored in the <code>&#112;&#114;&#111;&#112;&#115;</code> variable.</p><p>While part of this information comes directly from the app router (like uri and params) that can be used to retrive information or generate data, other <code>&#112;&#114;&#111;&#112;&#115;</code> can be configured throught magic methods defined in <code>&#112;&#97;&#103;&#101;&#46;&#106;&#115;</code> and <code>&#108;&#97;&#121;&#111;&#117;&#116;&#46;&#106;&#115;</code> when needed (like title, icons, metadata, styles and scripts). This information will be used to generate the <code>&#60;&#104;&#101;&#97;&#100;&#62;</code> tag in th HTML document.</p><p>The <code>&#99;&#111;&#110;&#116;&#101;&#110;&#116;</code> prop is very important to the renderer, it contains the generated HTML from the page to the layouts following the nesting process in a route. See more about <a href="/previous-js/docs/rendering#nesting" >nesting</a>.</p><div class="anchor" id="using-props"></div><h2 data-id="using-props">Using Props</h2><p>As we saw in rendering, <code>&#108;&#97;&#121;&#111;&#117;&#116;&#46;&#106;&#115;</code> and <code>&#112;&#97;&#103;&#101;&#46;&#106;&#115;</code> have a <code>&#99;&#111;&#110;&#116;&#101;&#110;&#116;</code> function returning the generated HTML part.</p><p>This function will always receive all these props:</p><table><thead><tr><th> PROP     </th><th> TYPE   </th><th> Description                </th></tr></thead><tbody><tr><td> title    </td><td> string </td><td> The Page Title             </td></tr><tr><td> icons    </td><td> object </td><td> List of Favicons           </td></tr><tr><td> metadata </td><td> object </td><td> All metadata               </td></tr><tr><td> styles   </td><td> array  </td><td> List of css files          </td></tr><tr><td> scripts  </td><td> array  </td><td> List of javascripts files  </td></tr><tr><td> content  </td><td> array  </td><td> Current rendered content   </td></tr><tr><td> params   </td><td> object </td><td> URL params                 </td></tr><tr><td> uri      </td><td> string </td><td> Current URI                </td></tr><tr><td> data     </td><td> object </td><td> Request Data               </td></tr></tbody></table><p>So you can use this information to create the content in any way.</p><p>For example, if using a dynamic route we can use the dynamic part of the segment in <code>&#112;&#97;&#114;&#97;&#109;&#115;</code> prop to create the content.</p><div class="codeblock" language="javascript" description="app/blog/[id]/page.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#58;&#32;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#99;&#111;&#110;&#115;&#116;&#32;&#97;&#114;&#116;&#105;&#99;&#108;&#101;&#32;&#61;&#32;&#103;&#101;&#116;&#65;&#114;&#116;&#105;&#99;&#108;&#101;&#40;&#112;&#114;&#111;&#112;&#115;&#46;&#112;&#97;&#114;&#97;&#109;&#115;&#46;&#105;&#100;&#41;&#59;&#13;
+&#32;&#32;&#32;&#32;&#105;&#102;&#32;&#40;&#33;&#97;&#114;&#116;&#105;&#99;&#108;&#101;&#41;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#32;&#114;&#101;&#100;&#105;&#114;&#101;&#99;&#116;&#58;&#32;&#34;&#47;&#110;&#111;&#116;&#45;&#102;&#111;&#117;&#110;&#100;&#34;&#32;&#125;&#59;&#13;
+&#32;&#32;&#32;&#32;&#125;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#96;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#97;&#114;&#116;&#105;&#99;&#108;&#101;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#104;&#49;&#62;&#36;&#123;&#97;&#114;&#116;&#105;&#99;&#108;&#101;&#46;&#116;&#105;&#116;&#108;&#101;&#125;&#60;&#47;&#104;&#49;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#100;&#105;&#118;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#115;&#117;&#109;&#109;&#97;&#114;&#121;&#34;&#62;&#36;&#123;&#97;&#114;&#116;&#105;&#99;&#108;&#101;&#46;&#115;&#117;&#109;&#109;&#97;&#114;&#121;&#125;&#60;&#47;&#100;&#105;&#118;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#100;&#105;&#118;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#97;&#117;&#116;&#104;&#111;&#114;&#34;&#62;&#36;&#123;&#97;&#114;&#116;&#105;&#99;&#108;&#101;&#46;&#97;&#117;&#116;&#104;&#111;&#114;&#125;&#60;&#47;&#100;&#105;&#118;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#100;&#105;&#118;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#112;&#117;&#98;&#108;&#105;&#115;&#104;&#101;&#100;&#34;&#62;&#36;&#123;&#97;&#114;&#116;&#105;&#99;&#108;&#101;&#46;&#112;&#117;&#98;&#108;&#105;&#115;&#104;&#101;&#100;&#125;&#60;&#47;&#100;&#105;&#118;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#100;&#105;&#118;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#34;&#62;&#36;&#123;&#97;&#114;&#116;&#105;&#99;&#108;&#101;&#46;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#125;&#60;&#47;&#100;&#105;&#118;&#62;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#60;&#47;&#97;&#114;&#116;&#105;&#99;&#108;&#101;&#62;&#13;
+&#32;&#32;&#32;&#32;&#96;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><p>When using <code>&#108;&#97;&#121;&#111;&#117;&#116;&#46;&#104;&#116;&#109;&#108;</code> and <code>&#112;&#97;&#103;&#101;&#46;&#104;&#116;&#109;&#108;</code> this props can be accessed by <code>&#36;&#123;&#112;&#114;&#111;&#112;&#115;&#46;&#42;&#125;</code> tokens directly written into the HTML.</p><div class="codeblock" language="javascript" description="app/dashboard/page.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#116;&#105;&#116;&#108;&#101;&#58;&#32;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#34;&#68;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#34;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><div class="codeblock" language="html" description="app/dashboard/page.html"><pre class="codeblock-body">&#46;&#46;&#46;&#13;
+&#60;&#104;&#49;&#62;&#13;
+&#32;&#32;&#60;&#97;&#32;&#104;&#114;&#101;&#102;&#61;&#34;&#36;&#123;&#112;&#114;&#111;&#112;&#115;&#46;&#117;&#114;&#105;&#125;&#34;&#62;&#13;
+&#32;&#32;&#32;&#32;&#36;&#123;&#112;&#114;&#111;&#112;&#115;&#46;&#116;&#105;&#116;&#108;&#101;&#125;&#13;
+&#32;&#32;&#60;&#47;&#97;&#62;&#13;
+&#60;&#47;&#104;&#49;&#62;&#13;
+&#46;&#46;&#46;&#13;
+</pre></div><blockquote><p><strong>Good to know</strong></p><p>You can add custom props to extend this functionality in many ways. Learn how to do it in <a href="#custom-props" >Custom Props</a> section.</p></blockquote><div class="anchor" id="setting-props"></div><h2 data-id="setting-props">Setting Props</h2><p>To modify the <code>&#60;&#104;&#101;&#97;&#100;&#62;</code> HTML elements such as <code>&#60;&#116;&#105;&#116;&#108;&#101;&#62;</code> and <code>&#60;&#109;&#101;&#116;&#97;&#62;</code> tags Previous.js provides these magic methods.</p><table><thead><tr><th> Method                    </th><th> Return </th><th> Description                        </th></tr></thead><tbody><tr><td> <a href="#title" >title</a>           </td><td> string </td><td> Sets the page title.               </td></tr><tr><td> <a href="#icons" >icons</a>           </td><td> object </td><td> Sets the favicon and other icons.  </td></tr><tr><td> <a href="#styles" >styles</a>         </td><td> array  </td><td> Add a list of stylesheet files.    </td></tr><tr><td> <a href="#scripts" >sctipts</a>       </td><td> array  </td><td> Add a list of javascript files.    </td></tr><tr><td> <a href="#metadata" >metadata</a>     </td><td> object </td><td> Sets any other metadata. For example all SEO content like description, author, viewport, etc. </td></tr><tr><td> <a href="#type" >type</a>             </td><td> string </td><td> Define the content type.           </td></tr></tbody></table><p>All these methods can be used in pages and layouts and its props will be updated by the renderer using the nesting from pages to layouts.</p><p>This means any prop set in a page can be used in the layout too.</p><div class="codeblock" language="javascript" description="app/page.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#116;&#105;&#116;&#108;&#101;&#58;&#32;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#39;&#77;&#121;&#32;&#70;&#105;&#114;&#115;&#116;&#32;&#80;&#97;&#103;&#101;&#39;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><div class="codeblock" language="javascript" description="app/layout.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#116;&#105;&#116;&#108;&#101;&#58;&#32;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#39;&#77;&#121;&#32;&#65;&#112;&#112;&#32;&#58;&#58;&#32;&#39;&#32;&#43;&#32;&#112;&#114;&#111;&#112;&#115;&#46;&#116;&#105;&#116;&#108;&#101;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><p>In the example above we set the title in page and the layout use this title adding a prefix to it. So the final document title will looks like:</p><div class="codeblock" language="html" description="acme.com/"><pre class="codeblock-body">&#60;&#104;&#116;&#109;&#108;&#62;&#13;
+&#60;&#104;&#101;&#97;&#100;&#62;&#13;
+&#32;&#32;&#46;&#46;&#46;&#13;
+&#32;&#32;&#60;&#116;&#105;&#116;&#108;&#101;&#62;&#77;&#121;&#32;&#65;&#112;&#112;&#32;&#58;&#58;&#32;&#77;&#121;&#32;&#70;&#105;&#114;&#115;&#116;&#32;&#80;&#97;&#103;&#101;&#60;&#47;&#116;&#105;&#116;&#108;&#101;&#62;&#13;
+&#32;&#32;&#46;&#46;&#46;&#13;
+&#60;&#47;&#104;&#101;&#97;&#100;&#62;&#13;
+&#60;&#98;&#111;&#100;&#121;&#62;&#13;
+&#32;&#32;&#46;&#46;&#46;&#13;
+&#60;&#47;&#98;&#111;&#100;&#121;&#62;&#13;
+&#60;&#47;&#104;&#116;&#109;&#108;&#62;&#13;
+</pre></div><blockquote><p><strong>Good to know</strong></p><p>Some of these magic methods (like styles and scripts) will append the list sequentially in a determinated order. See more in <a href="#styles" >Styles</a> and <a href="#scripts" >Scripts</a> sections.</p></blockquote><div class="anchor" id="title"></div><h3 data-id="title">Title</h3><p>Any page or layout can manage its title by extending the returning object with the method <code>&#116;&#105;&#116;&#108;&#101;</code>.</p><div class="codeblock" language="javascript" description="app/page.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#116;&#105;&#116;&#108;&#101;&#58;&#32;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#39;&#77;&#121;&#32;&#70;&#105;&#114;&#115;&#116;&#32;&#80;&#97;&#103;&#101;&#39;&#59;&#13;
+&#32;&#32;&#125;&#44;&#13;
+&#32;&#32;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#58;&#32;&#40;&#123;&#32;&#116;&#105;&#116;&#108;&#101;&#32;&#125;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#96;&#60;&#104;&#49;&#62;&#36;&#123;&#116;&#105;&#116;&#108;&#101;&#125;&#60;&#47;&#104;&#49;&#62;&#96;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><blockquote><p><strong>Good to know</strong></p><p>You should <strong>not</strong> manually add <code>&#60;&#104;&#101;&#97;&#100;&#62;</code> tags such as <code>&#60;&#116;&#105;&#116;&#108;&#101;&#62;</code> and <code>&#60;&#109;&#101;&#116;&#97;&#62;</code> to root layouts.</p></blockquote><p>This method will always receive all the page props to process any information before returning the final title.</p><p>When using Layouts you can use nesting to generate a composed title:</p><div class="codeblock" language="javascript" description="app/layout.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#116;&#105;&#116;&#108;&#101;&#58;&#32;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#39;&#77;&#121;&#32;&#65;&#112;&#112;&#32;&#45;&#32;&#39;&#32;&#43;&#32;&#112;&#114;&#111;&#112;&#115;&#46;&#116;&#105;&#116;&#108;&#101;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><p>The resulting HTML will looks like this:</p><div class="codeblock" language="html" description="acme.com/"><pre class="codeblock-body">&#60;&#104;&#116;&#109;&#108;&#62;&#13;
+&#60;&#104;&#101;&#97;&#100;&#62;&#13;
+&#32;&#32;&#46;&#46;&#46;&#13;
+&#32;&#32;&#60;&#116;&#105;&#116;&#108;&#101;&#62;&#77;&#121;&#32;&#65;&#112;&#112;&#32;&#45;&#32;&#77;&#121;&#32;&#70;&#105;&#114;&#115;&#116;&#32;&#80;&#97;&#103;&#101;&#60;&#47;&#116;&#105;&#116;&#108;&#101;&#62;&#13;
+&#32;&#32;&#46;&#46;&#46;&#13;
+&#60;&#47;&#104;&#101;&#97;&#100;&#62;&#13;
+&#60;&#98;&#111;&#100;&#121;&#62;&#13;
+&#32;&#32;&#46;&#46;&#46;&#13;
+&#32;&#32;&#60;&#104;&#49;&#62;&#77;&#121;&#32;&#70;&#105;&#114;&#115;&#116;&#32;&#80;&#97;&#103;&#101;&#60;&#47;&#104;&#49;&#62;&#13;
+&#32;&#32;&#46;&#46;&#46;&#13;
+&#60;&#47;&#98;&#111;&#100;&#121;&#62;&#13;
+&#60;&#47;&#104;&#116;&#109;&#108;&#62;&#13;
+</pre></div><div class="anchor" id="icons"></div><h3 data-id="icons">Icons</h3><p>Use this method to add a favicon or other icons to your Web App that appear in places like web browser tabs, phone home screens, and search engine results.</p><p>The returning object must have a key with the icon you want to add and a value with the public path to an icon resource in your project or an external URL.</p><div class="codeblock" language="javascript" description="app/layout.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#105;&#99;&#111;&#110;&#58;&#32;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#39;&#105;&#99;&#111;&#110;&#39;&#58;&#32;&#39;&#47;&#102;&#97;&#118;&#105;&#99;&#111;&#110;&#46;&#105;&#99;&#111;&#39;&#44;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#39;&#115;&#104;&#111;&#114;&#116;&#99;&#117;&#116;&#32;&#105;&#99;&#111;&#110;&#39;&#58;&#32;&#39;&#47;&#115;&#104;&#111;&#114;&#116;&#99;&#117;&#116;&#45;&#105;&#99;&#111;&#110;&#46;&#112;&#110;&#103;&#39;&#44;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#39;&#97;&#112;&#112;&#108;&#101;&#45;&#116;&#111;&#117;&#99;&#104;&#45;&#105;&#99;&#111;&#110;&#39;&#58;&#32;&#39;&#47;&#97;&#112;&#112;&#108;&#101;&#45;&#105;&#99;&#111;&#110;&#46;&#112;&#110;&#103;&#39;&#13;
+&#32;&#32;&#32;&#32;&#125;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><blockquote><p><strong>Remember!</strong> Do not forget to put '/' at start of the URL to refer a resource from <code>&#112;&#117;&#98;&#108;&#105;&#99;</code> folder.</p></blockquote><p>The resulting HTML will looks like this:</p><div class="codeblock" language="html" description="acme.com/"><pre class="codeblock-body">&#60;&#104;&#116;&#109;&#108;&#62;&#13;
+&#60;&#104;&#101;&#97;&#100;&#62;&#13;
+&#32;&#32;&#46;&#46;&#46;&#13;
+&#32;&#32;&#60;&#108;&#105;&#110;&#107;&#32;&#114;&#101;&#108;&#61;&#34;&#105;&#99;&#111;&#110;&#34;&#32;&#104;&#114;&#101;&#102;&#61;&#34;&#47;&#102;&#97;&#118;&#105;&#99;&#111;&#110;&#46;&#105;&#99;&#111;&#34;&#32;&#47;&#62;&#13;
+&#32;&#32;&#60;&#108;&#105;&#110;&#107;&#32;&#114;&#101;&#108;&#61;&#34;&#115;&#104;&#111;&#114;&#116;&#99;&#117;&#116;&#32;&#105;&#99;&#111;&#110;&#34;&#32;&#104;&#114;&#101;&#102;&#61;&#34;&#47;&#115;&#104;&#111;&#114;&#116;&#99;&#117;&#116;&#45;&#105;&#99;&#111;&#110;&#46;&#112;&#110;&#103;&#34;&#32;&#47;&#62;&#13;
+&#32;&#32;&#60;&#108;&#105;&#110;&#107;&#32;&#114;&#101;&#108;&#61;&#34;&#97;&#112;&#112;&#108;&#101;&#45;&#116;&#111;&#117;&#99;&#104;&#45;&#105;&#99;&#111;&#110;&#34;&#32;&#104;&#114;&#101;&#102;&#61;&#34;&#47;&#97;&#112;&#112;&#108;&#101;&#45;&#105;&#99;&#111;&#110;&#46;&#112;&#110;&#103;&#34;&#32;&#47;&#62;&#13;
+&#32;&#32;&#46;&#46;&#46;&#13;
+&#60;&#47;&#104;&#101;&#97;&#100;&#62;&#13;
+&#46;&#46;&#46;&#13;
+&#60;&#47;&#104;&#116;&#109;&#108;&#62;&#13;
+</pre></div><blockquote><p><strong>Good to know</strong></p><p>You should <strong>not</strong> manually add <code>&#60;&#108;&#105;&#110;&#107;&#32;&#114;&#101;&#108;&#61;&#34;&#105;&#99;&#111;&#110;&#34;&#32;&#46;&#46;&#46;&#62;</code> tag.</p></blockquote><div class="anchor" id="styles"></div><h3 data-id="styles">Styles</h3><p>This prop allows you to style your application with CSS.</p><p>Use this method to setup a list of stylesheet URLs you want to include in the final document.</p><div class="codeblock" language="javascript" description="app/layout.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#115;&#116;&#121;&#108;&#101;&#115;&#58;&#32;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#91;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#39;&#47;&#118;&#101;&#110;&#100;&#111;&#114;&#47;&#108;&#105;&#98;&#114;&#97;&#114;&#121;&#47;&#99;&#117;&#115;&#116;&#111;&#109;&#46;&#99;&#115;&#115;&#39;&#44;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#39;&#47;&#99;&#115;&#115;&#47;&#109;&#97;&#105;&#110;&#46;&#99;&#115;&#115;&#39;&#44;&#13;
+&#32;&#32;&#32;&#32;&#93;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><p>This prop will apend the list of CSS files in inverse order from route hierarchy but maintaining the order in the list.</p><p>This means CSS files from root layout will be loaded always before page CSS files.</p><p>This allows the web application to load the main dependencies first and in the same order.</p><blockquote><p><strong>Good to know</strong></p><p>You should <strong>not</strong> manually add <code>&#60;&#108;&#105;&#110;&#107;&#32;&#114;&#101;&#108;&#61;&#34;&#46;&#46;&#46;&#34;&#62;</code> tag.</p></blockquote><blockquote><p><strong>Important!</strong></p><p>When navigating between pages, Previous.js will autoload stylesheets from diferent pages once. So the loading order will follow the navigation order and all previously loaded stylesheets will remain loaded. Ensure your page styles do <strong>not</strong> use generic selectors if you want to only work on that page.</p></blockquote><div class="anchor" id="scripts"></div><h3 data-id="scripts">Scripts</h3><p>By default, Previous.js comes with jQuery so you do not need to include this library, but sometimes your app will need some aditional scripts to create an slider, control the UI of your App or add other interactions.</p><p>Use this method to create a list of scripts you want to include in the final page.</p><div class="codeblock" language="javascript" description="app/layout.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#115;&#99;&#114;&#105;&#112;&#116;&#115;&#58;&#32;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#91;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#39;&#104;&#116;&#116;&#112;&#115;&#58;&#47;&#47;&#99;&#100;&#110;&#106;&#115;&#46;&#99;&#108;&#111;&#117;&#100;&#102;&#108;&#97;&#114;&#101;&#46;&#99;&#111;&#109;&#47;&#97;&#106;&#97;&#120;&#47;&#108;&#105;&#98;&#115;&#47;&#108;&#111;&#100;&#97;&#115;&#104;&#46;&#106;&#115;&#47;&#52;&#46;&#49;&#55;&#46;&#50;&#49;&#47;&#108;&#111;&#100;&#97;&#115;&#104;&#46;&#109;&#105;&#110;&#46;&#106;&#115;&#39;&#44;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#39;&#47;&#118;&#101;&#110;&#100;&#111;&#114;&#47;&#108;&#105;&#98;&#114;&#97;&#114;&#121;&#47;&#99;&#117;&#115;&#116;&#111;&#109;&#46;&#106;&#115;&#39;&#44;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#39;&#47;&#106;&#115;&#47;&#97;&#112;&#112;&#46;&#106;&#115;&#39;&#44;&#13;
+&#32;&#32;&#32;&#32;&#93;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><p>Like the <code>&#115;&#116;&#121;&#108;&#101;&#115;</code> prop, this prop will apend the list of JS files in inverse order from route hierarchy but maintaining the order in the list.</p><p>This means JS files from root layout will be loaded always before page JS files.</p><p>This allows the web application to load the main dependencies first and in the same order.</p><blockquote><p><strong>Good to know</strong></p><p>You should <strong>not</strong> manually add <code>&#60;&#115;&#99;&#114;&#105;&#112;&#116;&#32;&#115;&#114;&#99;&#61;&#34;&#46;&#46;&#46;&#34;&#62;&#60;&#47;&#115;&#99;&#114;&#105;&#112;&#116;&#62;</code> tag.</p></blockquote><p>If you need to run any script after the page is loaded, then you have to use the <code>&#114;&#101;&#97;&#100;&#121;</code> method.</p><div class="codeblock" language="javascript" description="app/page.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#46;&#46;&#46;&#13;
+&#32;&#32;&#114;&#101;&#97;&#100;&#121;&#58;&#32;&#40;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#99;&#111;&#110;&#115;&#111;&#108;&#101;&#46;&#108;&#111;&#103;&#40;&#39;&#72;&#101;&#108;&#108;&#111;&#44;&#32;&#112;&#97;&#103;&#101;&#32;&#108;&#111;&#97;&#100;&#101;&#100;&#33;&#39;&#41;&#59;&#13;
+&#32;&#32;&#32;&#32;&#47;&#47;&#32;&#67;&#97;&#108;&#108;&#32;&#111;&#116;&#104;&#101;&#114;&#32;&#109;&#101;&#116;&#104;&#111;&#100;&#115;&#46;&#46;&#46;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><p>This script will be executed any time you enter the page.</p><blockquote><p><strong>Good to know</strong></p><p>Do <strong>not</strong> use the onload jQuery function <code>&#36;&#40;&#102;&#117;&#110;&#99;&#116;&#105;&#111;&#110;&#40;&#41;&#32;&#123;&#32;&#46;&#46;&#46;&#32;&#125;&#41;&#59;</code> on your scripts. Better use the <code>&#114;&#101;&#97;&#100;&#121;</code> function.</p></blockquote><blockquote><p><strong>Important!</strong></p><p>When navigating between pages, Previous.js will autoload scripts from diferent pages once. So this scripts will only run once.</p></blockquote><div class="anchor" id="metadata"></div><h3 data-id="metadata">Metadata</h3><p>This method provides a way to write any type of Metadata different than described above.</p><p>This information could be interesting to powerup SEO descriptions in your Web App.</p><p>It must return an object with a key value-pair corresponding with name and content of a <code>&#60;&#109;&#101;&#116;&#97;&#62;</code> tag.</p><p>Here is an example of some of the porperties you can define with this methor.</p><div class="codeblock" language="javascript" description="app/layout.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#109;&#101;&#116;&#97;&#100;&#97;&#116;&#97;&#58;&#32;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#100;&#101;&#115;&#99;&#114;&#105;&#112;&#116;&#105;&#111;&#110;&#58;&#32;&#34;&#77;&#121;&#32;&#97;&#119;&#101;&#115;&#111;&#109;&#101;&#32;&#100;&#101;&#115;&#99;&#114;&#105;&#112;&#116;&#105;&#111;&#110;&#34;&#44;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#107;&#101;&#121;&#119;&#111;&#114;&#100;&#115;&#58;&#32;&#34;&#80;&#114;&#101;&#118;&#105;&#111;&#117;&#115;&#46;&#106;&#115;&#44;&#106;&#81;&#117;&#101;&#114;&#121;&#44;&#74;&#97;&#118;&#97;&#83;&#99;&#114;&#105;&#112;&#116;&#34;&#44;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#97;&#117;&#116;&#104;&#111;&#114;&#58;&#32;&#34;&#110;&#101;&#99;&#114;&#111;&#95;&#116;&#120;&#105;&#108;&#111;&#107;&#34;&#44;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#118;&#105;&#101;&#119;&#112;&#111;&#114;&#116;&#58;&#32;&#34;&#119;&#105;&#100;&#116;&#104;&#61;&#100;&#101;&#118;&#105;&#99;&#101;&#45;&#119;&#105;&#100;&#116;&#104;&#44;&#32;&#105;&#110;&#105;&#116;&#105;&#97;&#108;&#45;&#115;&#99;&#97;&#108;&#101;&#61;&#49;&#34;&#44;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#34;&#112;&#114;&#111;&#112;&#58;&#111;&#103;&#58;&#116;&#105;&#116;&#108;&#101;&#34;&#58;&#32;&#34;&#80;&#114;&#101;&#118;&#105;&#111;&#117;&#115;&#46;&#106;&#115;&#34;&#13;
+&#32;&#32;&#32;&#32;&#125;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><blockquote><p><strong>Good to know</strong></p><p>You should <strong>not</strong> manually add <code>&#60;&#109;&#101;&#116;&#97;&#32;&#110;&#97;&#109;&#101;&#61;&#34;&#46;&#46;&#46;&#34;&#32;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#61;&#34;&#46;&#46;&#46;&#34;&#62;</code> tag.</p></blockquote><p>Sometimes we need to add different metadata depending on the page we are navigating, so you can use this method in <code>&#112;&#97;&#103;&#101;&#46;&#106;&#115;</code> to setup with the needed metadata.</p><p>If the same property is set in some of the wrapped layouts the page information will have preference over the layouts.</p><div class="codeblock" language="javascript" description="app/dashboard/page.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#109;&#101;&#116;&#97;&#100;&#97;&#116;&#97;&#58;&#32;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#100;&#101;&#115;&#99;&#114;&#105;&#112;&#116;&#105;&#111;&#110;&#58;&#32;&#34;&#84;&#104;&#101;&#32;&#68;&#97;&#115;&#104;&#98;&#111;&#97;&#114;&#100;&#32;&#80;&#97;&#103;&#101;&#32;&#59;&#41;&#34;&#13;
+&#32;&#32;&#32;&#32;&#125;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><div class="anchor" id="type"></div><h3 data-id="type">Type</h3><p>If you need to return a page in a different format than <code>&#116;&#101;&#120;&#116;&#47;&#104;&#116;&#109;&#108;</code> use this method do change the <code>&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#45;&#116;&#121;&#112;&#101;</code> header in the returning response.</p><p>For example you can create a page in plain text like this:</p><div class="codeblock" language="javascript" description="app/text/page.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#116;&#121;&#112;&#101;&#58;&#32;&#39;&#116;&#101;&#120;&#116;&#47;&#112;&#108;&#97;&#105;&#110;&#39;&#44;&#13;
+&#32;&#32;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#58;&#32;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#39;&#72;&#111;&#108;&#97;&#32;&#77;&#117;&#110;&#100;&#111;&#33;&#39;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><div class="anchor" id="custom-props"></div><h2 data-id="custom-props">Custom Props</h2><p>Sometimes we need to add custom data to props for using later in <code>&#99;&#111;&#110;&#116;&#101;&#110;&#116;</code> renderer even in parents layouts.</p><p>You can do this by defining the <code>&#100;&#97;&#116;&#97;</code> method and returning an object with the extra data like this:</p><div class="codeblock" language="javascript" description="app/page.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#100;&#97;&#116;&#97;&#58;&#32;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#121;&#101;&#97;&#114;&#58;&#32;&#40;&#110;&#101;&#119;&#32;&#68;&#97;&#116;&#101;&#40;&#41;&#41;&#46;&#103;&#101;&#116;&#70;&#117;&#108;&#108;&#89;&#101;&#97;&#114;&#40;&#41;&#13;
+&#32;&#32;&#32;&#32;&#125;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><p>So you can use it in the page content:</p><div class="codeblock" language="html" description="app/page.html"><pre class="codeblock-body">&#46;&#46;&#46;&#13;
+&#60;&#112;&#62;&#67;&#114;&#101;&#97;&#116;&#101;&#100;&#32;&#105;&#110;&#32;&#36;&#123;&#112;&#114;&#111;&#112;&#115;&#46;&#121;&#101;&#97;&#114;&#125;&#46;&#60;&#47;&#112;&#62;&#13;
+&#46;&#46;&#46;&#13;
+&#13;
+</pre></div><p>And in layout, for example:</p><div class="codeblock" language="javascript" description="app/layout.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#109;&#101;&#116;&#97;&#100;&#97;&#116;&#97;&#58;&#32;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#121;&#101;&#97;&#114;&#58;&#32;&#112;&#114;&#111;&#112;&#115;&#46;&#121;&#101;&#97;&#114;&#13;
+&#32;&#32;&#32;&#32;&#125;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><p>Learn more about using custom props in <a href="/previous-js/docs/components" >Components</a> or <a href="/previous-js/docs/data" >Data</a> sections.</p>
+		<div class="nav-buttons"></div>
+	</article>
+	<nav class="index menu">
+		<h5 class="index-header">On this page</h5>
+		<a href="#using-props" class="level-2">Using Props</a>
+<a href="#setting-props" class="level-2">Setting Props</a>
+<a href="#title" class="level-3">Title</a>
+<a href="#icons" class="level-3">Icons</a>
+<a href="#styles" class="level-3">Styles</a>
+<a href="#scripts" class="level-3">Scripts</a>
+<a href="#metadata" class="level-3">Metadata</a>
+<a href="#type" class="level-3">Type</a>
+<a href="#custom-props" class="level-2">Custom Props</a>
+	</nav>
+</section>
+<script type="text/javascript">
+$(function() {
+		docs.highlightCode();
+		docs.setNavigationButtons();
+		setTimeout(function() {
+			docs.linkDocumentHeaders();
+		}, 100);
+	});
+</script>
+	</div>
+</main>
+<footer>
+	<div class="container">
+		<div class="content">
+			<div class="grid-columns-6">
+				<div><p><img src="/previous-js/img/logo-inverted.png"></p></div>
+				<div>
+					<p><b>Resources</b></p>
+					<p><a href="/previous-js/showcase">Showcase</a></p>
+					<p><a href="/previous-js/docs/intro">Docs</a></p>
+					<p><a href="https://www.w3schools.com/jquery/default.asp" target="_blank">Learn</a></p>
+					<p><a href="https://blog.jquery.com/" target="_blank">Blog</a></p>
+					<p><a href="https://tympanus.net/codrops/category/blueprints/" target="_blank">Blueprints</a></p>
+				</div>
+				<div>
+					<p><b>More</b></p>
+					<p><a href="https://github.com/necrotxilok/previous.js" target="_blank">Source</a></p>
+					<p><a href="https://github.com/necrotxilok/previous.js/releases" target="_blank">Releases</a></p>
+					<p><a href="https://github.com/necrotxilok/previous.js/blob/main/LICENSE" target="_blank">License</a></p>
+					<p><a href="https://www.paypal.com/donate/?hosted_button_id=BFGBHCXK2A2GL" target="_blank">Donate</a></p>
+				</div>
+				<div>
+					<p><b>About</b></p>
+					<p><a href="https://necrotxilok.github.io/" target="_blank">Projects</a></p>
+					<p><a href="https://github.com/necrotxilok" target="_blank">GitHub</a></p>
+					<p><a href="https://twitter.com/necro_txilok/" target="_blank">Twitter</a></p>
+					<p><a href="necro_txilok(at)hotmail(dot)com" class="js-cm">Contact</a></p>
+					<script type="text/javascript">(function(){var r=document.querySelector('.js-cm').getAttribute('href');document.querySelector('.js-cm').setAttribute('href','mailto:'+r.replace('(at)','@').replace('(dot)','.'));})();</script>
+				</div>
+				<div>
+					<p><b>Legal</b></p>
+					<p><a href="/previous-js/legal#disclaimer">Disclaimer</a></p>
+					<p><a href="/previous-js/legal#privacy">Privacy</a></p>
+					<p><a href="/previous-js/legal#cookies">Cookies</a></p>
+				</div>
+				<div>
+					<p><b>Newsletter</b></p>
+					<p>Stay updated on new releases and features, guides, and case studies.</p>
+					<form class="subscribe-form">
+						<input type="email" class="input" placeholder="your@email.com">
+						<input type="submit" class="submit" value="Subscribe">
+					</form>
+					<p><small class="subscribe-form-result"></small></p>
+				</div>
+			</div>
+		</div>
+		<div class="author">@ 2023 - Developed by <a href="https://necrotxilok.github.io/" target="_blank">necro_txilok <span class="external"></span></a></div>
+	</div>
+</footer>
+<script type="text/javascript">
+$(function() {
+		$('.subscribe-form').on('submit', function(e) {
+			e.preventDefault();
+			$('.subscribe-form-result').text('Please, do not send us your email. It goes against our privacy policy.')
+		});
+	});
+</script>
+</body>
+</html>

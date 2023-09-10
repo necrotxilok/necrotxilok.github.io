@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Docs: Require | Previous.js</title>
+	<link rel="icon" type="image/x-icon" href="/previous-js/favicon.ico">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="/previous-js/css/style.css">
+<link rel="stylesheet" type="text/css" href="/previous-js/vendor/highlight/styles/atom-one-dark.min.css">
+<link rel="stylesheet" type="text/css" href="/previous-js/css/docs.css">
+
+	<script type="text/javascript" src="/previous-js/previous.js"></script>
+<script type="text/javascript" src="/previous-js/js/app.js"></script>
+<script type="text/javascript" src="/previous-js/vendor/highlight/highlight.min.js"></script>
+<script type="text/javascript" src="/previous-js/js/docs.js"></script>
+
+</head>
+<body>
+	<header>
+	<div class="container flex flex-left">
+		<div class="logo">
+			<a href="/previous-js/"><img src="/previous-js/img/logo-inverted.png"></a>
+		</div>
+		<nav class="menu flex">
+			<a href="/previous-js/showcase">Showcase</a>
+			<a href="/previous-js/docs/intro">Docs</a>
+			<a href="https://www.w3schools.com/jquery/default.asp" target="_blank">Learn</a>
+			<a href="https://blog.jquery.com/" target="_blank">Blog</a>
+			<a href="https://tympanus.net/codrops/category/blueprints/" target="_blank">Blueprints</a>
+		</nav>
+	</div>
+</header>
+<main>
+	<div class="container">
+		
+<section class="docs">
+	<nav class="articles menu">
+		<h1>Docs</h1>
+		<a href="/previous-js/docs/intro">Getting Started</a>
+<a href="/previous-js/docs/installation">Installation</a>
+<a href="/previous-js/docs/structure">Project Structure</a>
+<a href="/previous-js/docs/routing">Routing</a>
+<a href="/previous-js/docs/rendering">Rendering</a>
+<a href="/previous-js/docs/props">Props</a>
+<a href="/previous-js/docs/require" class="active">Require</a>
+<a href="/previous-js/docs/components">Components</a>
+<a href="/previous-js/docs/apis">APIs</a>
+<a href="/previous-js/docs/data">Data</a>
+<a href="/previous-js/docs/errors">Error Handling</a>
+<a href="/previous-js/docs/publishing">Publishing</a>
+<a href="/previous-js/docs/reference">Reference</a>
+	</nav>
+	<article class="content">
+		<div class="anchor" id="require"></div><h1 data-id="require">Require</h1><p>Node.js provides the <code>&#114;&#101;&#113;&#117;&#105;&#114;&#101;</code> method to load any other files or modules in your app.</p><p>When using <code>&#114;&#101;&#113;&#117;&#105;&#114;&#101;</code> to load scripts or Node Modules, it is important to know that you will have to manually stop the server and start it again.</p><p>This is because Node.js will include the files at start time, so next time you run it will use the precompiled version.</p><p>To prevent this behaviour and improve the performance, Previous.js comes with the <a href="#the-load-function" ><code>&#108;&#111;&#97;&#100;</code></a> method which ensure any change on the loaded file will be considered in all executions, so you do not need to restart the server.</p><blockquote><p><strong>Important!</strong></p><p>The <code>&#114;&#101;&#113;&#105;&#114;&#101;</code>function is only available in <strong>server side</strong>.</p></blockquote><blockquote><p><strong>Good to know</strong></p><p>The special method <code>&#105;&#109;&#112;&#111;&#114;&#116;</code> is not supported.</p></blockquote><div class="anchor" id="default-node-modules"></div><h2 data-id="default-node-modules">Default Node Modules</h2><p>Previous.js preload these Node.js Modules in all your layout and page scripts:</p><table><thead><tr><th>            </th><th>                                                                                     </th></tr></thead><tbody><tr><td> fs         </td><td> Node.js <a href="https://nodejs.org/docs/latest/api/fs.html" target="_blank">File System Module</a>            </td></tr><tr><td> path       </td><td> Node.js <a href="https://nodejs.org/docs/latest/api/path.html" target="_blank">Path Module</a>                 </td></tr></tbody></table><p>Then you can access all <code>&#102;&#115;</code> and <code>&#112;&#97;&#116;&#104;</code> methods without require in your scripts. For example:</p><div class="codeblock" language="javascript" description="app/page.js"><pre class="codeblock-body">&#46;&#46;&#46;&#13;
+&#13;
+&#99;&#111;&#110;&#115;&#116;&#32;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#32;&#61;&#32;&#102;&#115;&#46;&#114;&#101;&#97;&#100;&#70;&#105;&#108;&#101;&#83;&#121;&#110;&#99;&#40;&#39;&#112;&#97;&#116;&#104;&#47;&#116;&#111;&#47;&#102;&#105;&#108;&#101;&#46;&#106;&#115;&#111;&#110;&#39;&#41;&#59;&#13;
+&#13;
+&#46;&#46;&#46;&#13;
+&#13;
+&#99;&#111;&#110;&#115;&#116;&#32;&#102;&#105;&#108;&#101;&#80;&#97;&#116;&#104;&#32;&#61;&#32;&#112;&#97;&#116;&#104;&#46;&#106;&#111;&#105;&#110;&#40;&#39;&#47;&#102;&#111;&#111;&#39;&#44;&#32;&#39;&#46;&#46;&#39;&#44;&#32;&#39;&#98;&#97;&#114;&#47;&#97;&#115;&#100;&#102;&#46;&#116;&#120;&#116;&#39;&#41;&#59;&#13;
+&#13;
+&#46;&#46;&#46;&#13;
+</pre></div><blockquote><p><strong>Important!</strong></p><p>These objects are only available in <strong>server side</strong>.</p></blockquote><blockquote><p><strong>Good to know</strong></p><p>Avoid reassign these objects in your scripts or you can find errors or unexpected behaviours.</p></blockquote><p>You can load any other Node.js Modules into your app scripts by using <code>&#114;&#101;&#113;&#117;&#105;&#114;&#101;</code> but remember to restart your server when doing this.</p><div class="anchor" id="default-functions"></div><h2 data-id="default-functions">Default Functions</h2><p>Previous.js will preload next functions in all your layouts, pages and routes scripts:</p><table><thead><tr><th>              </th><th>                                                           </th></tr></thead><tbody><tr><td> <code>&#108;&#111;&#97;&#100;</code>       </td><td> Javascript loader (like <code>&#114;&#101;&#113;&#117;&#105;&#114;&#101;</code>)                        </td></tr><tr><td> <code>&#114;&#101;&#97;&#100;</code>       </td><td> Text file template reader                                 </td></tr><tr><td> <code>&#103;&#101;&#116;&#74;&#83;&#79;&#78;</code>    </td><td> Convert data to JSON response                             </td></tr></tbody></table><blockquote><p><strong>Important!</strong></p><p>These functions are only available in <strong>server side</strong>.</p></blockquote><blockquote><p><strong>Good to know</strong></p><p>Avoid reassign these functions in your scripts or you can find errors or unexpected behaviours.</p></blockquote><div class="anchor" id="load"></div><h3 data-id="load">load</h3><p>This method provide a way to load any script in the server side of your app at runtime and it will be updated if any change is made in the loaded script.</p><div class="codeblock" language="javascript" description="app/page.js"><pre class="codeblock-body">&#99;&#111;&#110;&#115;&#116;&#32;&#102;&#117;&#110;&#99;&#32;&#61;&#32;&#108;&#111;&#97;&#100;&#40;&#34;&#108;&#105;&#98;&#115;&#47;&#102;&#117;&#110;&#99;&#46;&#106;&#115;&#34;&#41;&#59;&#13;
+&#99;&#111;&#110;&#115;&#116;&#32;&#111;&#98;&#106;&#32;&#61;&#32;&#108;&#111;&#97;&#100;&#40;&#34;&#108;&#105;&#98;&#115;&#47;&#111;&#98;&#106;&#46;&#106;&#115;&#34;&#41;&#59;&#13;
+&#99;&#111;&#110;&#115;&#116;&#32;&#67;&#108;&#97;&#115;&#115;&#32;&#61;&#32;&#108;&#111;&#97;&#100;&#40;&#34;&#108;&#105;&#98;&#115;&#47;&#67;&#108;&#97;&#115;&#115;&#46;&#106;&#115;&#34;&#41;&#59;&#13;
+</pre></div><p>The loaded script must return a function, an object or a class, then you can use it very similar to <code>&#114;&#101;&#113;&#117;&#105;&#114;&#101;</code> function.</p><div class="codeblock" language="javascript" description="app/page.js"><pre class="codeblock-body">&#108;&#101;&#116;&#32;&#97;&#32;&#61;&#32;&#109;&#121;&#70;&#117;&#110;&#99;&#116;&#105;&#111;&#110;&#40;&#41;&#59;&#13;
+&#108;&#101;&#116;&#32;&#98;&#32;&#61;&#32;&#111;&#98;&#106;&#46;&#114;&#101;&#110;&#100;&#101;&#114;&#40;&#41;&#59;&#13;
+&#108;&#101;&#116;&#32;&#99;&#32;&#61;&#32;&#110;&#101;&#119;&#32;&#67;&#108;&#97;&#115;&#115;&#40;&#41;&#59;&#13;
+</pre></div><p>To learn more about <code>&#108;&#111;&#97;&#100;</code> function go to <a href="/previous-js/docs/components" >Components</a> or <a href="/previous-js/docs/data" >Data</a>.</p><div class="anchor" id="read"></div><h3 data-id="read">read</h3><p>The <code>&#114;&#101;&#97;&#100;</code> method provides a simple way to read a text file as string and parse <code>&#36;&#123;&#112;&#114;&#111;&#112;&#115;&#46;&#42;&#125;</code> tokens from data provided.</p><p>For example you can put an HTML template like this in a file:</p><div class="codeblock" language="html" description="templates/header.html"><pre class="codeblock-body">&#60;&#104;&#49;&#32;&#99;&#108;&#97;&#115;&#115;&#61;&#34;&#36;&#123;&#112;&#114;&#111;&#112;&#115;&#46;&#99;&#108;&#97;&#115;&#115;&#125;&#34;&#62;&#36;&#123;&#112;&#114;&#111;&#112;&#115;&#46;&#116;&#105;&#116;&#108;&#101;&#125;&#60;&#47;&#104;&#49;&#62;&#13;
+</pre></div><p>So you can get the parsed content with:</p><div class="codeblock" language="javascript" description="app/page.js"><pre class="codeblock-body">&#99;&#111;&#110;&#115;&#116;&#32;&#104;&#101;&#97;&#100;&#101;&#114;&#72;&#84;&#77;&#76;&#32;&#61;&#32;&#114;&#101;&#97;&#100;&#40;&#34;&#116;&#101;&#109;&#112;&#108;&#97;&#116;&#101;&#115;&#47;&#104;&#101;&#97;&#100;&#101;&#114;&#46;&#104;&#116;&#109;&#108;&#34;&#44;&#32;&#123;&#13;
+&#32;&#32;&#116;&#105;&#116;&#108;&#101;&#58;&#32;&#39;&#84;&#104;&#101;&#32;&#84;&#105;&#116;&#108;&#101;&#39;&#44;&#13;
+&#32;&#32;&#99;&#108;&#97;&#115;&#115;&#58;&#32;&#39;&#109;&#97;&#105;&#110;&#45;&#116;&#105;&#116;&#108;&#101;&#39;&#13;
+&#125;&#41;&#59;&#13;
+</pre></div><p>This method is used to automatic parse <code>&#112;&#97;&#103;&#101;&#46;&#104;&#116;&#109;&#108;</code> or <code>&#108;&#97;&#121;&#111;&#117;&#116;&#46;&#104;&#116;&#109;&#108;</code> files in your <code>&#97;&#112;&#112;&#47;</code> folder, but you can use it to manually parse other files.</p><p>See more about <a href="/previous-js/docs/rendering" >rendering</a>.</p><div class="anchor" id="getjson"></div><h3 data-id="getjson">getJSON</h3><p>Use this function to return an object in JSON format with the corresponding content type <code>&#97;&#112;&#112;&#108;&#105;&#99;&#97;&#116;&#105;&#111;&#110;&#47;&#106;&#115;&#111;&#110;</code> to use as the final result returned by APIs.</p><div class="codeblock" language="javascript" description="app/api/route.js"><pre class="codeblock-body">&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#123;&#13;
+&#32;&#32;&#71;&#69;&#84;&#58;&#32;&#40;&#112;&#114;&#111;&#112;&#115;&#41;&#32;&#61;&#62;&#32;&#123;&#13;
+&#32;&#32;&#32;&#32;&#114;&#101;&#116;&#117;&#114;&#110;&#32;&#103;&#101;&#116;&#74;&#83;&#79;&#78;&#40;&#123;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#105;&#100;&#58;&#32;&#49;&#44;&#13;
+&#32;&#32;&#32;&#32;&#32;&#32;&#116;&#105;&#116;&#108;&#101;&#58;&#32;&#39;&#72;&#101;&#108;&#108;&#111;&#39;&#13;
+&#32;&#32;&#32;&#32;&#125;&#41;&#59;&#13;
+&#32;&#32;&#125;&#13;
+&#125;&#13;
+</pre></div><p>Learn more about <a href="/previous-js/docs/apis" >creating APIs</a>.</p>
+		<div class="nav-buttons"></div>
+	</article>
+	<nav class="index menu">
+		<h5 class="index-header">On this page</h5>
+		<a href="#default-node-modules" class="level-2">Default Node Modules</a>
+<a href="#default-functions" class="level-2">Default Functions</a>
+<a href="#load" class="level-3">load</a>
+<a href="#read" class="level-3">read</a>
+<a href="#getjson" class="level-3">getJSON</a>
+	</nav>
+</section>
+<script type="text/javascript">
+$(function() {
+		docs.highlightCode();
+		docs.setNavigationButtons();
+		setTimeout(function() {
+			docs.linkDocumentHeaders();
+		}, 100);
+	});
+</script>
+	</div>
+</main>
+<footer>
+	<div class="container">
+		<div class="content">
+			<div class="grid-columns-6">
+				<div><p><img src="/previous-js/img/logo-inverted.png"></p></div>
+				<div>
+					<p><b>Resources</b></p>
+					<p><a href="/previous-js/showcase">Showcase</a></p>
+					<p><a href="/previous-js/docs/intro">Docs</a></p>
+					<p><a href="https://www.w3schools.com/jquery/default.asp" target="_blank">Learn</a></p>
+					<p><a href="https://blog.jquery.com/" target="_blank">Blog</a></p>
+					<p><a href="https://tympanus.net/codrops/category/blueprints/" target="_blank">Blueprints</a></p>
+				</div>
+				<div>
+					<p><b>More</b></p>
+					<p><a href="https://github.com/necrotxilok/previous.js" target="_blank">Source</a></p>
+					<p><a href="https://github.com/necrotxilok/previous.js/releases" target="_blank">Releases</a></p>
+					<p><a href="https://github.com/necrotxilok/previous.js/blob/main/LICENSE" target="_blank">License</a></p>
+					<p><a href="https://www.paypal.com/donate/?hosted_button_id=BFGBHCXK2A2GL" target="_blank">Donate</a></p>
+				</div>
+				<div>
+					<p><b>About</b></p>
+					<p><a href="https://necrotxilok.github.io/" target="_blank">Projects</a></p>
+					<p><a href="https://github.com/necrotxilok" target="_blank">GitHub</a></p>
+					<p><a href="https://twitter.com/necro_txilok/" target="_blank">Twitter</a></p>
+					<p><a href="necro_txilok(at)hotmail(dot)com" class="js-cm">Contact</a></p>
+					<script type="text/javascript">(function(){var r=document.querySelector('.js-cm').getAttribute('href');document.querySelector('.js-cm').setAttribute('href','mailto:'+r.replace('(at)','@').replace('(dot)','.'));})();</script>
+				</div>
+				<div>
+					<p><b>Legal</b></p>
+					<p><a href="/previous-js/legal#disclaimer">Disclaimer</a></p>
+					<p><a href="/previous-js/legal#privacy">Privacy</a></p>
+					<p><a href="/previous-js/legal#cookies">Cookies</a></p>
+				</div>
+				<div>
+					<p><b>Newsletter</b></p>
+					<p>Stay updated on new releases and features, guides, and case studies.</p>
+					<form class="subscribe-form">
+						<input type="email" class="input" placeholder="your@email.com">
+						<input type="submit" class="submit" value="Subscribe">
+					</form>
+					<p><small class="subscribe-form-result"></small></p>
+				</div>
+			</div>
+		</div>
+		<div class="author">@ 2023 - Developed by <a href="https://necrotxilok.github.io/" target="_blank">necro_txilok <span class="external"></span></a></div>
+	</div>
+</footer>
+<script type="text/javascript">
+$(function() {
+		$('.subscribe-form').on('submit', function(e) {
+			e.preventDefault();
+			$('.subscribe-form-result').text('Please, do not send us your email. It goes against our privacy policy.')
+		});
+	});
+</script>
+</body>
+</html>

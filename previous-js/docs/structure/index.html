@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Docs: Project Structure | Previous.js</title>
+	<link rel="icon" type="image/x-icon" href="/previous-js/favicon.ico">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="/previous-js/css/style.css">
+<link rel="stylesheet" type="text/css" href="/previous-js/vendor/highlight/styles/atom-one-dark.min.css">
+<link rel="stylesheet" type="text/css" href="/previous-js/css/docs.css">
+
+	<script type="text/javascript" src="/previous-js/previous.js"></script>
+<script type="text/javascript" src="/previous-js/js/app.js"></script>
+<script type="text/javascript" src="/previous-js/vendor/highlight/highlight.min.js"></script>
+<script type="text/javascript" src="/previous-js/js/docs.js"></script>
+
+</head>
+<body>
+	<header>
+	<div class="container flex flex-left">
+		<div class="logo">
+			<a href="/previous-js/"><img src="/previous-js/img/logo-inverted.png"></a>
+		</div>
+		<nav class="menu flex">
+			<a href="/previous-js/showcase">Showcase</a>
+			<a href="/previous-js/docs/intro">Docs</a>
+			<a href="https://www.w3schools.com/jquery/default.asp" target="_blank">Learn</a>
+			<a href="https://blog.jquery.com/" target="_blank">Blog</a>
+			<a href="https://tympanus.net/codrops/category/blueprints/" target="_blank">Blueprints</a>
+		</nav>
+	</div>
+</header>
+<main>
+	<div class="container">
+		
+<section class="docs">
+	<nav class="articles menu">
+		<h1>Docs</h1>
+		<a href="/previous-js/docs/intro">Getting Started</a>
+<a href="/previous-js/docs/installation">Installation</a>
+<a href="/previous-js/docs/structure" class="active">Project Structure</a>
+<a href="/previous-js/docs/routing">Routing</a>
+<a href="/previous-js/docs/rendering">Rendering</a>
+<a href="/previous-js/docs/props">Props</a>
+<a href="/previous-js/docs/require">Require</a>
+<a href="/previous-js/docs/components">Components</a>
+<a href="/previous-js/docs/apis">APIs</a>
+<a href="/previous-js/docs/data">Data</a>
+<a href="/previous-js/docs/errors">Error Handling</a>
+<a href="/previous-js/docs/publishing">Publishing</a>
+<a href="/previous-js/docs/reference">Reference</a>
+	</nav>
+	<article class="content">
+		<div class="anchor" id="previous-js-project-structure"></div><h1 data-id="previous-js-project-structure">Previous.js Project Structure</h1><p>This page provides an overview of the file and folder structure of a Previous.js project. It covers top-level files and folders, configuration files, and routing conventions within the <code>&#97;&#112;&#112;</code> and <code>&#112;&#97;&#103;&#101;&#115;</code> directories.</p><div class="anchor" id="top-level-folders"></div><h2 data-id="top-level-folders">Top-level folders</h2><table><thead><tr><th>                                            </th><th>                                    </th></tr></thead><tbody><tr><td> <a href="/previous-js/docs/routing" ><code>&#97;&#112;&#112;&#47;</code></a>                    </td><td> App Router                         </td></tr><tr><td> <a href="/previous-js/docs/components" ><code>&#99;&#111;&#109;&#112;&#111;&#110;&#101;&#110;&#116;&#115;&#47;</code></a>          </td><td> App Components                     </td></tr><tr><td> <a href="/previous-js/docs/data" ><code>&#100;&#97;&#116;&#97;&#47;</code></a>                      </td><td> App Data                           </td></tr><tr><td> <code>&#112;&#114;&#101;&#118;&#105;&#111;&#117;&#115;&#47;</code>                                </td><td> Previous.js Core                   </td></tr><tr><td> <code>&#112;&#117;&#98;&#108;&#105;&#99;&#47;</code>                                  </td><td> Static assets to be served         </td></tr></tbody></table><div class="anchor" id="top-level-files"></div><h2 data-id="top-level-files">Top-level files</h2><table><thead><tr><th>                                        </th><th>                     </th><th>                                         </th></tr></thead><tbody><tr><td> <code>&#115;&#116;&#97;&#114;&#116;</code>                                </td><td> <code>&#46;&#98;&#97;&#116;</code> <code>&#46;&#115;&#104;</code>        </td><td> Start the web server                    </td></tr><tr><td> <code>&#98;&#117;&#105;&#108;&#100;</code>                                </td><td> <code>&#46;&#98;&#97;&#116;</code> <code>&#46;&#115;&#104;</code>        </td><td> Build into static files                 </td></tr></tbody></table><div class="anchor" id="routing-conventions"></div><h2 data-id="routing-conventions">Routing Conventions</h2><div class="anchor" id="page-routes"></div><h3 data-id="page-routes">Page Routes</h3><table><thead><tr><th>                                                    </th><th>                     </th><th>                              </th></tr></thead><tbody><tr><td> <a href="/previous-js/docs/rendering#pages" ><code>&#97;&#112;&#112;&#47;&#112;&#97;&#103;&#101;&#46;&#106;&#115;</code></a>             </td><td> <code>&#46;&#106;&#115;</code> <code>&#46;&#104;&#116;&#109;&#108;</code>       </td><td> Main Page                    </td></tr><tr><td> <a href="/previous-js/docs/rendering#pages" ><code>&#97;&#112;&#112;&#47;&#42;&#47;&#112;&#97;&#103;&#101;&#46;&#106;&#115;</code></a>           </td><td> <code>&#46;&#106;&#115;</code> <code>&#46;&#104;&#116;&#109;&#108;</code>       </td><td> Page                         </td></tr></tbody></table><div class="anchor" id="layout-routes"></div><h3 data-id="layout-routes">Layout Routes</h3><table><thead><tr><th>                                                    </th><th>                     </th><th>                              </th></tr></thead><tbody><tr><td> <a href="/previous-js/docs/rendering#layouts" ><code>&#97;&#112;&#112;&#47;&#108;&#97;&#121;&#111;&#117;&#116;&#46;&#106;&#115;</code></a>         </td><td> <code>&#46;&#106;&#115;</code> <code>&#46;&#104;&#116;&#109;&#108;</code>       </td><td> Root Layout                  </td></tr><tr><td> <a href="/previous-js/docs/rendering#layouts" ><code>&#97;&#112;&#112;&#47;&#42;&#47;&#108;&#97;&#121;&#111;&#117;&#116;&#46;&#106;&#115;</code></a>       </td><td> <code>&#46;&#106;&#115;</code> <code>&#46;&#104;&#116;&#109;&#108;</code>       </td><td> Layout                       </td></tr></tbody></table><div class="anchor" id="api-routes"></div><h3 data-id="api-routes">API Routes</h3><table><thead><tr><th>                                                    </th><th>                     </th><th>                              </th></tr></thead><tbody><tr><td> <a href="/previous-js/docs/apis" ><code>&#97;&#112;&#112;&#47;&#114;&#111;&#117;&#116;&#101;&#46;&#106;&#115;</code></a>                       </td><td> <code>&#46;&#106;&#115;</code>               </td><td> API endpoint                 </td></tr><tr><td> <a href="/previous-js/docs/apis" ><code>&#97;&#112;&#112;&#47;&#42;&#47;&#114;&#111;&#117;&#116;&#101;&#46;&#106;&#115;</code></a>                     </td><td> <code>&#46;&#106;&#115;</code>               </td><td> API endpoint                 </td></tr></tbody></table><div class="anchor" id="advanced-routes"></div><h3 data-id="advanced-routes">Advanced Routes</h3><table><thead><tr><th>                                                    </th><th>                     </th><th>                              </th></tr></thead><tbody><tr><td> <a href="/previous-js/docs/routing#dynamic-routes" ><code>&#97;&#112;&#112;&#47;&#42;&#47;&#91;&#112;&#97;&#114;&#97;&#109;&#93;&#47;&#42;</code></a>  </td><td> <code>&#46;&#106;&#115;</code> <code>&#46;&#104;&#116;&#109;&#108;</code>       </td><td> Dynamic route segment        </td></tr><tr><td> <a href="/previous-js/docs/routing#private-folders" ><code>&#97;&#112;&#112;&#47;&#95;&#102;&#111;&#108;&#100;&#101;&#114;&#47;&#42;</code></a>   </td><td> <code>&#46;&#106;&#115;</code>               </td><td> Ignored route paths          </td></tr></tbody></table><div class="anchor" id="error-routes"></div><h3 data-id="error-routes">Error Routes</h3><table><thead><tr><th>                                                    </th><th>                     </th><th>                              </th></tr></thead><tbody><tr><td> <a href="/previous-js/docs/errors#404-page-not-found" ><code>&#97;&#112;&#112;&#47;&#52;&#48;&#52;&#46;&#106;&#115;</code></a>    </td><td> <code>&#46;&#106;&#115;</code>               </td><td> 404 Custom Not Found Page    </td></tr><tr><td> <a href="/previous-js/docs/errors#500-server-error-page" ><code>&#97;&#112;&#112;&#47;&#53;&#48;&#48;&#46;&#106;&#115;</code></a> </td><td> <code>&#46;&#106;&#115;</code>               </td><td> 500 Custom Error Page        </td></tr></tbody></table><div class="anchor" id="public-files-conventions"></div><h2 data-id="public-files-conventions">Public Files Conventions</h2><table><thead><tr><th>                                </th><th>                                     </th><th>                                  </th></tr></thead><tbody><tr><td> <code>&#112;&#117;&#98;&#108;&#105;&#99;&#47;&#102;&#97;&#118;&#105;&#99;&#111;&#110;</code>               </td><td> <code>&#46;&#105;&#99;&#111;</code> <code>&#46;&#112;&#110;&#103;</code>                       </td><td> Favicon file                     </td></tr><tr><td> <code>&#112;&#117;&#98;&#108;&#105;&#99;&#47;&#105;&#99;&#111;&#110;</code>                  </td><td> <code>&#46;&#105;&#99;&#111;</code> <code>&#46;&#106;&#112;&#103;</code> <code>&#46;&#106;&#112;&#101;&#103;</code> <code>&#46;&#112;&#110;&#103;</code> <code>&#46;&#115;&#118;&#103;</code> </td><td> App Icon file                    </td></tr><tr><td> <code>&#112;&#117;&#98;&#108;&#105;&#99;&#47;&#97;&#112;&#112;&#108;&#101;&#45;&#105;&#99;&#111;&#110;</code>            </td><td> <code>&#46;&#106;&#112;&#103;</code> <code>&#46;&#106;&#112;&#101;&#103;</code> <code>&#46;&#112;&#110;&#103;</code>               </td><td> Apple App Icon file              </td></tr><tr><td> <code>&#112;&#117;&#98;&#108;&#105;&#99;&#47;&#105;&#109;&#103;&#47;&#42;</code>                 </td><td> <code>&#46;&#105;&#99;&#111;</code> <code>&#46;&#106;&#112;&#103;</code> <code>&#46;&#106;&#112;&#101;&#103;</code> <code>&#46;&#112;&#110;&#103;</code> <code>&#46;&#115;&#118;&#103;</code> </td><td> Image files                      </td></tr><tr><td> <code>&#112;&#117;&#98;&#108;&#105;&#99;&#47;&#106;&#115;&#47;&#42;</code>                  </td><td> <code>&#46;&#106;&#115;</code>                               </td><td> JavaScript files                 </td></tr><tr><td> <code>&#112;&#117;&#98;&#108;&#105;&#99;&#47;&#99;&#115;&#115;&#47;&#42;</code>                 </td><td> <code>&#46;&#99;&#115;&#115;</code>                              </td><td> Stylesheet files                 </td></tr><tr><td> <code>&#112;&#117;&#98;&#108;&#105;&#99;&#47;&#118;&#101;&#110;&#100;&#111;&#114;&#47;&#108;&#105;&#98;&#114;&#97;&#114;&#121;&#47;&#42;</code>      </td><td> <code>&#46;&#42;</code>                                </td><td> Vendor Library files             </td></tr></tbody></table>
+		<div class="nav-buttons"></div>
+	</article>
+	<nav class="index menu">
+		<h5 class="index-header">On this page</h5>
+		<a href="#top-level-folders" class="level-2">Top-level folders</a>
+<a href="#top-level-files" class="level-2">Top-level files</a>
+<a href="#routing-conventions" class="level-2">Routing Conventions</a>
+<a href="#page-routes" class="level-3">Page Routes</a>
+<a href="#layout-routes" class="level-3">Layout Routes</a>
+<a href="#api-routes" class="level-3">API Routes</a>
+<a href="#advanced-routes" class="level-3">Advanced Routes</a>
+<a href="#error-routes" class="level-3">Error Routes</a>
+<a href="#public-files-conventions" class="level-2">Public Files Conventions</a>
+	</nav>
+</section>
+<script type="text/javascript">
+$(function() {
+		docs.highlightCode();
+		docs.setNavigationButtons();
+		setTimeout(function() {
+			docs.linkDocumentHeaders();
+		}, 100);
+	});
+</script>
+	</div>
+</main>
+<footer>
+	<div class="container">
+		<div class="content">
+			<div class="grid-columns-6">
+				<div><p><img src="/previous-js/img/logo-inverted.png"></p></div>
+				<div>
+					<p><b>Resources</b></p>
+					<p><a href="/previous-js/showcase">Showcase</a></p>
+					<p><a href="/previous-js/docs/intro">Docs</a></p>
+					<p><a href="https://www.w3schools.com/jquery/default.asp" target="_blank">Learn</a></p>
+					<p><a href="https://blog.jquery.com/" target="_blank">Blog</a></p>
+					<p><a href="https://tympanus.net/codrops/category/blueprints/" target="_blank">Blueprints</a></p>
+				</div>
+				<div>
+					<p><b>More</b></p>
+					<p><a href="https://github.com/necrotxilok/previous.js" target="_blank">Source</a></p>
+					<p><a href="https://github.com/necrotxilok/previous.js/releases" target="_blank">Releases</a></p>
+					<p><a href="https://github.com/necrotxilok/previous.js/blob/main/LICENSE" target="_blank">License</a></p>
+					<p><a href="https://www.paypal.com/donate/?hosted_button_id=BFGBHCXK2A2GL" target="_blank">Donate</a></p>
+				</div>
+				<div>
+					<p><b>About</b></p>
+					<p><a href="https://necrotxilok.github.io/" target="_blank">Projects</a></p>
+					<p><a href="https://github.com/necrotxilok" target="_blank">GitHub</a></p>
+					<p><a href="https://twitter.com/necro_txilok/" target="_blank">Twitter</a></p>
+					<p><a href="necro_txilok(at)hotmail(dot)com" class="js-cm">Contact</a></p>
+					<script type="text/javascript">(function(){var r=document.querySelector('.js-cm').getAttribute('href');document.querySelector('.js-cm').setAttribute('href','mailto:'+r.replace('(at)','@').replace('(dot)','.'));})();</script>
+				</div>
+				<div>
+					<p><b>Legal</b></p>
+					<p><a href="/previous-js/legal#disclaimer">Disclaimer</a></p>
+					<p><a href="/previous-js/legal#privacy">Privacy</a></p>
+					<p><a href="/previous-js/legal#cookies">Cookies</a></p>
+				</div>
+				<div>
+					<p><b>Newsletter</b></p>
+					<p>Stay updated on new releases and features, guides, and case studies.</p>
+					<form class="subscribe-form">
+						<input type="email" class="input" placeholder="your@email.com">
+						<input type="submit" class="submit" value="Subscribe">
+					</form>
+					<p><small class="subscribe-form-result"></small></p>
+				</div>
+			</div>
+		</div>
+		<div class="author">@ 2023 - Developed by <a href="https://necrotxilok.github.io/" target="_blank">necro_txilok <span class="external"></span></a></div>
+	</div>
+</footer>
+<script type="text/javascript">
+$(function() {
+		$('.subscribe-form').on('submit', function(e) {
+			e.preventDefault();
+			$('.subscribe-form-result').text('Please, do not send us your email. It goes against our privacy policy.')
+		});
+	});
+</script>
+</body>
+</html>
