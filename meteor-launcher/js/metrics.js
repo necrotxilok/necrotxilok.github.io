@@ -2,8 +2,8 @@
 ;(function(document, window, $, undefined) {
   "use strict";
 
-  var server = 'http://ntkserver.com';
-  var url = 'http://necrotxilok.github.io/meteor-launcher/';
+  var server = 'https://ntkserver.com';
+  var url = 'https://necrotxilok.github.io/meteor-launcher/';
   //var url = window.location.href;
 
   function getParams(params, code) {
